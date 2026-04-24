@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · David Mateos — Escritor</title>
+<meta name="description" content="Artículos sobre literatura infantil y juvenil, consejos para padres y docentes, escritura creativa y recomendaciones lectoras de David Mateos, escritor de las sagas Valentina Roca y Calan Kennett.">
+<link rel="stylesheet" href="style-shared.css">
+<style>
+.blog-header { background: var(--cream-dark); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 2.5rem; text-align: center; }
+.blog-header .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 0.75rem; }
+.blog-header h1 { font-family: var(--font-display); font-size: clamp(2rem, 4.5vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+.blog-header p { color: var(--muted); max-width: 560px; margin: 0 auto 1.5rem; }
+.filter-bar { max-width: var(--wide); margin: 0 auto; padding: 1.5rem 2rem 0; display: flex; gap: 0.6rem; flex-wrap: wrap; }
+.filter-btn { background: none; border: 1.5px solid var(--border); color: var(--brown-light); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 999px; cursor: pointer; transition: all .2s; font-family: var(--font-body); }
+.filter-btn:hover, .filter-btn.active { background: var(--amber); border-color: var(--amber); color: #fff; }
+.featured { max-width: var(--wide); margin: 0 auto; padding: 2.5rem 2rem 0; }
+.featured-card { background: var(--brown); color: #fff; border-radius: 12px; padding: 2.5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; text-decoration: none; transition: transform .2s; }
+.featured-card:hover { transform: translateY(-3px); }
+.featured-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 0.75rem; }
+.featured-card h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); line-height: 1.25; margin-bottom: 1rem; color: #fff; }
+.featured-card p { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 1.5rem; }
+.featured-meta { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+.featured-visual { display: flex; align-items: center; justify-content: center; font-size: 6rem; background: rgba(255,255,255,0.05); border-radius: 8px; height: 200px; }
+.section-title { max-width: var(--wide); margin: 3rem auto 0; padding: 0 2rem; display: flex; align-items: center; gap: 1rem; }
+.section-title h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--brown-light); white-space: nowrap; }
+.section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.card-img { font-size: 3.5rem; }
+.newsletter { max-width: var(--wide); margin: 0 auto; padding: 2rem; }
+.newsletter-inner { background: var(--cream-dark); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; text-align: center; }
+.newsletter-inner h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+.newsletter-inner p { color: var(--muted); margin-bottom: 1.5rem; }
+@media(max-width:700px) { .featured-card { grid-template-columns: 1fr; } .featured-visual { display: none; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://davidmateos.com/inicio.html" class="nav-logo">David Mateos</a>
+    <ul class="nav-links">
+      <li><a href="https://davidmateos.com/inicio.html">Inicio</a></li>
+      <li><a href="https://davidmateos.com/libros.html">Mis libros</a></li>
+      <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
+      <li><a href="blog.html" class="active">Blog</a></li>
+      <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="blog-header">
+  <p class="eyebrow">El blog de David Mateos</p>
+  <h1>Literatura, lectura y escritura</h1>
+  <p>Artículos para padres, docentes y lectores sobre literatura infantil y juvenil, hábito lector y escritura creativa.</p>
+</header>
+
+<div class="filter-bar">
+  <button class="filter-btn active">Todos</button>
+  <button class="filter-btn">Para padres</button>
+  <button class="filter-btn">Para docentes</button>
+  <button class="filter-btn">Literatura juvenil</button>
+  <button class="filter-btn">Escritura creativa</button>
+  <button class="filter-btn">Recomendaciones</button>
+</div>
+
+<!-- FEATURED -->
+<div class="featured">
+  <a href="blog/post-01.html" class="featured-card">
+    <div>
+      <p class="featured-eyebrow">⭐ Artículo destacado · Para padres</p>
+      <h2>Cómo fomentar el hábito lector en niños de 8 a 12 años: 7 estrategias que funcionan de verdad</h2>
+      <p>Guía práctica con técnicas respaldadas por expertos en lectura infantil para crear lectores entusiastas desde casa.</p>
+      <p class="featured-meta">📅 18 marzo 2025 &nbsp;·&nbsp; ⏱ 7 min de lectura</p>
+    </div>
+    <div class="featured-visual">📚</div>
+  </a>
+</div>
+
+<!-- ALL POSTS -->
+<div class="section-title"><h2>Todos los artículos</h2></div>
+
+<div class="blog-grid">
+
+  <a href="blog/post-02.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#4A3D6E22,#4A3D6E44)">🔍</div>
+    <div class="card-body">
+      <span class="tag">Recomendaciones</span>
+      <h2>Los mejores libros de misterio para niños de 9 a 13 años</h2>
+      <p>Selección comentada de sagas y títulos de género detectivesco para lectores infantiles en español.</p>
+    </div>
+    <div class="card-footer"><span>📅 2 abril 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-03.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#2A4D6E22,#2A4D6E44)">🏫</div>
+    <div class="card-body">
+      <span class="tag">Para docentes</span>
+      <h2>Cómo trabajar un libro de aventuras en el aula de Primaria</h2>
+      <p>Propuestas didácticas, actividades antes y después de la lectura y estrategias para la lectura colectiva.</p>
+    </div>
+    <div class="card-footer"><span>📅 15 abril 2025</span><span>⏱ 9 min</span></div>
+  </a>
+
+  <a href="blog/post-04.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#6E3D2A22,#6E3D2A44)">✍️</div>
+    <div class="card-body">
+      <span class="tag">Escritura creativa</span>
+      <h2>Cómo crear personajes que los niños no olvidan</h2>
+      <p>Los mecanismos detrás de los personajes más memorables de la literatura infantil y juvenil.</p>
+    </div>
+    <div class="card-footer"><span>📅 28 abril 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+  <a href="blog/post-05.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#5A3D6E22,#5A3D6E44)">👨‍👩‍👧</div>
+    <div class="card-body">
+      <span class="tag">Lectura en familia</span>
+      <h2>Leer en familia: el ritual que crea lectores de por vida</h2>
+      <p>Guía práctica para instaurar el hábito de la lectura compartida en casa, con propuestas para distintas edades.</p>
+    </div>
+    <div class="card-footer"><span>📅 12 mayo 2025</span><span>⏱ 6 min</span></div>
+  </a>
+
+  <a href="blog/post-06.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#2A6E4D22,#2A6E4D44)">🗺️</div>
+    <div class="card-body">
+      <span class="tag">Literatura juvenil</span>
+      <h2>Literatura juvenil de fantasía: por qué los mundos imaginarios son buenos para los niños</h2>
+      <p>La ciencia detrás del valor cognitivo y emocional de la ficción fantástica en niños y adolescentes.</p>
+    </div>
+    <div class="card-footer"><span>📅 26 mayo 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-07.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#6E5A2A22,#6E5A2A44)">🎮</div>
+    <div class="card-body">
+      <span class="tag">Para padres</span>
+      <h2>Libros para niños que dicen que odian leer: 8 claves para dar con el libro que lo cambia todo</h2>
+      <p>Cómo encontrar el libro que conecte con un niño o adolescente que rechaza la lectura.</p>
+    </div>
+    <div class="card-footer"><span>📅 9 junio 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+  <a href="blog/post-08.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#2A4A6E22,#2A4A6E44)">🔎</div>
+    <div class="card-body">
+      <span class="tag">Escritura creativa</span>
+      <h2>Cómo escribir una historia de misterio para niños: estructura, pistas y el giro final</h2>
+      <p>Guía técnica para escritores noveles y actividades de escritura creativa en el aula.</p>
+    </div>
+    <div class="card-footer"><span>📅 23 junio 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-09.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#4E2A6E22,#4E2A6E44)">🏛️</div>
+    <div class="card-body">
+      <span class="tag">Cultura</span>
+      <h2>Visitas culturales con niños: cómo los museos y monumentos se convierten en historias</h2>
+      <p>Ideas para conectar las visitas culturales con la lectura y la escritura creativa.</p>
+    </div>
+    <div class="card-footer"><span>📅 7 julio 2025</span><span>⏱ 6 min</span></div>
+  </a>
+
+  <a href="blog/post-10.html" class="blog-card">
+    <div class="card-img" style="background:linear-gradient(135deg,#3D6E2A22,#3D6E2A44)">🌱</div>
+    <div class="card-body">
+      <span class="tag">Para docentes</span>
+      <h2>Clubs de lectura en el colegio: cómo organizarlos y conseguir que los alumnos quieran volver</h2>
+      <p>Guía práctica para docentes sobre cómo montar un club de lectura escolar que funcione de verdad.</p>
+    </div>
+    <div class="card-footer"><span>📅 21 julio 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+</div>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="newsletter-inner">
+    <h2>Recibe los nuevos artículos en tu correo</h2>
+    <p>Suscríbete para recibir novedades, artículos del blog y recursos para docentes directamente en tu bandeja de entrada.</p>
+    <a href="https://davidmateos.com/suscribete.html" class="btn btn-amber">Suscribirme gratis</a>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 David Mateos · Escritor español · <a href="https://davidmateos.com">davidmateos.com</a></p>
+</footer>
+
+</body>
+</html>
