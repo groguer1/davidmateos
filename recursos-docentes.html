@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos para Docentes · David Mateos</title>
+<meta name="description" content="Guías de lectura, actividades didácticas y materiales descargables para trabajar las sagas Valentina Roca y Calan Kennett en el aula. Recursos gratuitos para docentes y bibliotecarios.">
+<link rel="stylesheet" href="style-shared.css">
+<style>
+.hero-docentes { background: var(--brown); color: #fff; padding: 4rem 2rem; text-align: center; }
+.hero-docentes .eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 0.75rem; }
+.hero-docentes h1 { font-family: var(--font-display); font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; line-height: 1.2; }
+.hero-docentes p { color: rgba(255,255,255,0.75); max-width: 580px; margin: 0 auto 2rem; }
+.badge-row { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-top: 1.5rem; }
+.badge { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.85); font-size: 0.78rem; font-weight: 700; padding: 0.4rem 1rem; border-radius: 999px; letter-spacing: 0.05em; }
+.resources-grid { max-width: var(--wide); margin: 0 auto; padding: 3rem 2rem 5rem; }
+.resource-section { margin-bottom: 4rem; }
+.section-header { display: flex; align-items: flex-start; gap: 1.5rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--border); }
+.book-badge { width: 56px; height: 56px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.75rem; flex-shrink: 0; }
+.section-header h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.3rem; }
+.section-header p { color: var(--muted); font-size: 0.88rem; }
+.resource-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+.resource-card { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: box-shadow .2s; }
+.resource-card:hover { box-shadow: 0 6px 24px rgba(44,38,32,0.09); }
+.rc-top { display: flex; gap: 1rem; align-items: flex-start; }
+.rc-icon { width: 44px; height: 44px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
+.rc-title { font-family: var(--font-display); font-size: 0.97rem; font-weight: 600; color: var(--brown); line-height: 1.35; }
+.rc-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+.rc-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.rc-tag { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; padding: 0.2rem 0.55rem; border-radius: 3px; }
+.rc-footer { margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.rc-level { font-size: 0.76rem; color: var(--muted); }
+.btn-sm { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 1rem; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border-radius: 4px; text-decoration: none; transition: all .2s; background: var(--amber); color: #fff; }
+.btn-sm:hover { background: var(--amber-light); }
+.btn-sm-outline { background: transparent; border: 1.5px solid var(--brown); color: var(--brown); }
+.btn-sm-outline:hover { background: var(--brown); color: #fff; }
+
+/* Guide content (accordion style) */
+.guide-preview { background: var(--cream-dark); border-radius: 8px; padding: 1.5rem; margin-top: 1rem; font-size: 0.85rem; }
+.guide-preview h4 { font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.75rem; color: var(--brown); }
+.guide-preview ol, .guide-preview ul { padding-left: 1.25rem; }
+.guide-preview li { margin-bottom: 0.4rem; color: var(--brown-light); }
+
+/* General resources */
+.general-section { background: var(--cream-dark); border-radius: 12px; padding: 2.5rem; margin-bottom: 3rem; }
+.general-section h2 { font-family: var(--font-display); font-size: 1.4rem; margin-bottom: 1.5rem; }
+.gen-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; }
+.gen-card { background: #fff; border-radius: 8px; padding: 1.25rem; border: 1px solid var(--border); }
+.gen-card .emoji { font-size: 1.75rem; margin-bottom: 0.5rem; display: block; }
+.gen-card h3 { font-family: var(--font-display); font-size: 0.95rem; margin-bottom: 0.4rem; }
+.gen-card p { font-size: 0.8rem; color: var(--muted); }
+
+/* Contact band */
+.contact-band { background: var(--amber); color: #fff; padding: 2.5rem 2rem; text-align: center; }
+.contact-band h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
+.contact-band p { margin-bottom: 1.5rem; font-size: 0.92rem; opacity: 0.9; }
+.btn-white { background: #fff; color: var(--amber); font-weight: 700; }
+.btn-white:hover { background: rgba(255,255,255,0.9); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="https://davidmateos.com/inicio.html" class="nav-logo">David Mateos</a>
+    <ul class="nav-links">
+      <li><a href="https://davidmateos.com/inicio.html">Inicio</a></li>
+      <li><a href="https://davidmateos.com/libros.html">Mis libros</a></li>
+      <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero-docentes">
+  <p class="eyebrow">Para profesores y bibliotecarios</p>
+  <h1>Recursos gratuitos para trabajar mis libros en el aula</h1>
+  <p>Guías de lectura, actividades didácticas, propuestas de escritura creativa y materiales de apoyo para docentes y bibliotecarios. Todo gratuito, listo para usar.</p>
+  <div class="badge-row">
+    <span class="badge">📥 Descarga gratuita</span>
+    <span class="badge">🎓 Primaria y ESO</span>
+    <span class="badge">📐 Alineado con currículo LOMLOE</span>
+    <span class="badge">✉️ Contacto directo con el autor</span>
+  </div>
+</div>
+
+<div class="resources-grid">
+
+  <!-- ===== VALENTINA ROCA ===== -->
+  <div class="resource-section">
+    <div class="section-header">
+      <div class="book-badge" style="background:#1A1A2E;">🔍</div>
+      <div>
+        <h2>Colección Valentina Roca</h2>
+        <p>Misterio · Juvenil · A partir de 9 años · Recomendado para 4.º Primaria – 2.º ESO</p>
+      </div>
+    </div>
+
+    <div class="resource-cards">
+
+      <!-- Libro 1 -->
+      <div class="resource-card">
+        <div class="rc-top">
+          <div class="rc-icon" style="background:#E8F4F8;">🏆</div>
+          <div class="rc-title">Guía de lectura completa — <em>Valentina Roca y el misterio del collar de la Marquesa</em></div>
+        </div>
+        <p class="rc-desc">Guía de trabajo para el aula con ficha del libro, resumen por capítulos, preguntas de comprensión por niveles (literal, inferencial, crítico), actividades de pre y post-lectura y propuestas de escritura creativa.</p>
+        <div class="rc-tags">
+          <span class="rc-tag" style="background:#E8F4F8;color:#2A4D6E;">Comprensión lectora</span>
+          <span class="rc-tag" style="background:#F0F8E8;color:#2A6E3D;">Escritura</span>
+          <span class="rc-tag" style="background:#FFF4E0;color:#8A5A00;">Debate</span>
+        </div>
+        <div class="guide-preview">
+          <h4>📋 Contenido de la guía</h4>
+          <ol>
+            <li>Ficha bibliográfica y sinopsis</li>
+            <li>Antes de leer: actividades de predicción</li>
+            <li>Durante la lectura: preguntas por capítulo (15 preguntas)</li>
+            <li>Comprensión global: 10 preguntas por niveles</li>
+            <li>Vocabulario: 20 palabras clave con actividades</li>
+            <li>Análisis de personajes: ficha de Valentina y secundarios</li>
+            <li>El misterio como género: características y ejemplos</li>
+            <li>Escritura creativa: 4 propuestas</li>
+            <li>Debate: "¿Es correcto investigar sin permiso?"</li>
+            <li>Propuesta de evaluación alternativa</li>
+          </ol>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-level">🎓 4.º–6.º Primaria</span>
+          <a href="https://davidmateos.com/contacto.html" class="btn-sm">📥 Solicitar</a>
+        </div>
+      </div>
+
+      <!-- Libro 2 -->
+      <div class="resource-card">
+        <div class="rc-top">
+          <div class="rc-icon" style="background:#F0E8F8;">🖼️</div>
+          <div class="rc-title">Guía de lectura — <em>Valentina Roca y el fantasma del Prado</em></div>
+        </div>
+        <p class="rc-desc">Materiales específicos para trabajar este título con especial atención al arte y los museos como contexto narrativo. Incluye actividad de visita virtual al Museo del Prado.</p>
+        <div class="rc-tags">
+          <span class="rc-tag" style="background:#F0E8F8;color:#4E2A6E;">Arte y cultura</span>
+          <span class="rc-tag" style="background:#E8F4F8;color:#2A4D6E;">Comprensión lectora</span>
+          <span class="rc-tag" style="background:#FFF4E0;color:#8A5A00;">Visita virtual</span>
+        </div>
+        <div class="guide-preview">
+          <h4>📋 Contenido de la guía</h4>
+          <ol>
+            <li>Ficha y sinopsis</li>
+            <li>Contexto cultural: el Museo del Prado</li>
+            <li>Actividad previa: "obras de arte misteriosas"</li>
+            <li>Preguntas de comprensión por capítulos</li>
+            <li>Vocabulario de arte: 15 términos</li>
+            <li>Análisis del escenario como personaje</li>
+            <li>Escritura creativa: el cuadro que guarda un secreto</li>
+            <li>Visita virtual guiada al Prado</li>
+            <li>Debate: "¿El arte pertenece a todos?"</li>
+          </ol>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-level">🎓 4.º–6.º Primaria</span>
+          <a href="https://davidmateos.com/contacto.html" class="btn-sm">📥 Solicitar</a>
+        </div>
+      </div>
+
+      <!-- Libro 3 -->
+      <div class="resource-card">
+        <div class="rc-top">
+          <div class="rc-icon" style="background:#E8F8F0;">🕷️</div>
+          <div class="rc-title">Guía de lectura — <em>Valentina Roca y el desafío de la Araña</em></div>
+        </div>
+        <p class="rc-desc">El caso más complejo de la saga invita a trabajar el pensamiento crítico, las redes de mentiras y la presión social. Guía con actividades específicas de pensamiento deductivo.</p>
+        <div class="rc-tags">
+          <span class="rc-tag" style="background:#E8F8F0;color:#2A6E4D;">Pensamiento crítico</span>
+          <span class="rc-tag" style="background:#FFF0E8;color:#8A3A00;">Valores</span>
+          <span class="rc-tag" style="background:#E8F4F8;color:#2A4D6E;">Comprensión lectora</span>
+        </div>
+        <div class="guide-preview">
+          <h4>📋 Contenido de la guía</h4>
+          <ol>
+            <li>Ficha y sinopsis</li>
+            <li>El pensamiento deductivo: actividades previas</li>
+            <li>Preguntas de comprensión con pistas</li>
+            <li>Mapa de sospechosos: actividad colaborativa</li>
+            <li>Vocabulario de investigación: 18 términos</li>
+            <li>Escritura creativa: "el capítulo del sospechoso inocente"</li>
+            <li>Debate: "¿Cuándo está justificado mentir?"</li>
+            <li>Juego de rol: el juicio final</li>
+          </ol>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-level">🎓 5.º–6.º Primaria</span>
+          <a href="https://davidmateos.com/contacto.html" class="btn-sm">📥 Solicitar</a>
+        </div>
+      </div>
+
+      <!-- Libro 4 -->
+      <div class="resource-card">
+        <div class="rc-top">
+          <div class="rc-icon" style="background:#F8F0E8;">💻</div>
+          <div class="rc-title">Guía de lectura — <em>Valentina Roca y el Gambito Hacker</em></div>
+        </div>
+        <p class="rc-desc">Guía orientada a la educación digital y la ciberseguridad como contexto narrativo. Incluye actividades de alfabetización digital integradas en el trabajo literario.</p>
+        <div class="rc-tags">
+          <span class="rc-tag" style="background:#F8F0E8;color:#6E3D2A;">Ciberseguridad</span>
+          <span class="rc-tag" style="background:#E8F8F0;color:#2A6E4D;">Competencia digital</span>
+          <span class="rc-tag" style="background:#E8F4F8;color:#2A4D6E;">Comprensión</span>
+        </div>
+        <div class="guide-preview">
+          <h4>📋 Contenido de la guía</h4>
+          <ol>
+            <li>Ficha y sinopsis</li>
+            <li>Contexto: ¿qué es un hackeo?</li>
+            <li>Preguntas de comprensión por capítulos</li>
+            <li>Vocabulario digital: 20 términos</li>
+            <li>Debate: "Privacidad en la era digital"</li>
+            <li>Escritura creativa: la contraseña perfecta (relato)</li>
+            <li>Actividad: analizar un intento de phishing</li>
+            <li>Conexión con competencia DIGCOMP</li>
+          </ol>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-level">🎓 6.º Primaria – 1.º ESO</span>
+          <a href="https://davidmateos.com/contacto.html" class="btn-sm">📥 Solicitar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== CALAN KENNETT ===== -->
+  <div class="resource-section">
+    <div class="section-header">
+      <div class="book-badge" style="background:#0D1B2A;">⚔️</div>
+      <div>
+        <h2>Colección Calan Kennett</h2>
+        <p>Fantasía épica · Aventura · A partir de 12 años · Recomendado para 1.º–4.º ESO</p>
+      </div>
+    </div>
+
+    <div class="resource-cards">
+
+      <div class="resource-card">
+        <div class="rc-top">
+          <div class="rc-icon" style="background:#E8F0F8;">🌍</div>
+          <div class="rc-title">Guía de lectura completa — Saga Calan Kennett (Libro 1)</div>
+        </div>
+        <p class="rc-desc">Guía para trabajar la saga de fantasía épica en ESO, con especial atención al worldbuilding, los arquetipos del héroe y los temas filosóficos que subyacen en la aventura.</p>
+        <div class="rc-tags">
+          <span class="rc-tag" style="background:#E8F0F8;color:#2A4D6E;">Worldbuilding</span>
+          <span class="rc-tag" style="background:#F0E8F8;color:#4E2A6E;">Mitología</span>
+          <span class="rc-tag" style="background:#F0F8E8;color:#2A6E3D;">Valores</span>
+        </div>
+        <div class="guide-preview">
+          <h4>📋 Contenido de la guía</h4>
+          <ol>
+            <li>El viaje del héroe: el esquema de Campbell</li>
+            <li>Construcción del mundo: mapa y razas</li>
+            <li>Preguntas de comprensión por bloques</li>
+            <li>Análisis del protagonista: arco de transformación</li>
+            <li>Los dilemas morales del relato épico</li>
+            <li>Escritura creativa: tu propia criatura fantástica</li>
+            <li>Conexión con la mitología clásica</li>
+            <li>Debate: "¿Es posible ser héroe sin sacrificio?"</li>
+          </ol>
+        </div>
+        <div class="rc-footer">
+          <span class="rc-level">🎓 1.º–3.º ESO</span>
+          <a href="https://davidmateos.com/contacto.html" class="btn-sm">📥 Solicitar</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===== RECURSOS GENERALES ===== -->
+  <div class="general-section">
+    <h2>Recursos generales para el aula</h2>
+    <div class="gen-grid">
+
+      <div class="gen-card">
+        <span class="emoji">📊</span>
+        <h3>Rúbrica de evaluación lectora</h3>
+        <p>Rúbrica para evaluar la comprensión lectora, la participación en debate y la escritura creativa en el contexto de la lectura de una novela.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+      <div class="gen-card">
+        <span class="emoji">🗣️</span>
+        <h3>Ficha de debate literario</h3>
+        <p>Estructura guiada para organizar un debate sobre los dilemas éticos del libro, con roles asignados y criterios de participación.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+      <div class="gen-card">
+        <span class="emoji">✏️</span>
+        <h3>Taller de escritura creativa</h3>
+        <p>Secuencia de 4 sesiones para trabajar la escritura de un relato de misterio breve, inspirado en la saga Valentina Roca.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+      <div class="gen-card">
+        <span class="emoji">📅</span>
+        <h3>Planificación de la lectura</h3>
+        <p>Plantilla para organizar la lectura de un libro en 4, 6 u 8 semanas, con propuestas de actividades semanales y gestión del tiempo lector.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+      <div class="gen-card">
+        <span class="emoji">🎤</span>
+        <h3>Guía para el encuentro con el autor</h3>
+        <p>Cómo preparar una visita del autor al aula o una sesión por videollamada: preguntas tipo, protocolo, y cómo aprovecharla al máximo.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+      <div class="gen-card">
+        <span class="emoji">🌱</span>
+        <h3>Guía para montar un club de lectura</h3>
+        <p>Paso a paso para crear y mantener un club de lectura escolar: estructura de las sesiones, selección de libros y actividades complementarias.</p>
+        <br><a href="https://davidmateos.com/contacto.html" class="btn-sm btn-sm-outline" style="margin-top:auto;">Solicitar</a>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- CONTACT BAND -->
+<div class="contact-band">
+  <h2>¿Quieres que David Mateos venga a tu colegio?</h2>
+  <p>El autor hace visitas a centros educativos (presenciales y por videollamada) para presentaciones de libros, talleres de escritura creativa y charlas sobre el proceso de crear historias. Contacta para disponibilidad y condiciones.</p>
+  <a href="https://davidmateos.com/contacto.html" class="btn btn-white">Contactar</a>
+</div>
+
+<footer>
+  <p>© 2025 David Mateos · Escritor español · <a href="https://davidmateos.com">davidmateos.com</a></p>
+</footer>
+
+</body>
+</html>
