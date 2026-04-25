@@ -15,22 +15,29 @@
 .filter-btn { background: none; border: 1.5px solid var(--border); color: var(--brown-light); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 999px; cursor: pointer; transition: all .2s; font-family: var(--font-body); }
 .filter-btn:hover, .filter-btn.active { background: var(--amber); border-color: var(--amber); color: #fff; }
 .featured { max-width: var(--wide); margin: 0 auto; padding: 2.5rem 2rem 0; }
-.featured-card { background: var(--brown); color: #fff; border-radius: 12px; padding: 2.5rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; text-decoration: none; transition: transform .2s; }
+.featured-card { background: var(--brown); color: #fff; border-radius: 12px; overflow: hidden; display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch; text-decoration: none; transition: transform .2s; }
 .featured-card:hover { transform: translateY(-3px); }
+.featured-text { padding: 2.5rem 3rem; }
 .featured-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 0.75rem; }
 .featured-card h2 { font-family: var(--font-display); font-size: clamp(1.3rem, 2.5vw, 1.8rem); line-height: 1.25; margin-bottom: 1rem; color: #fff; }
 .featured-card p { color: rgba(255,255,255,0.7); font-size: 0.92rem; margin-bottom: 1.5rem; }
 .featured-meta { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
-.featured-visual { display: flex; align-items: center; justify-content: center; font-size: 6rem; background: rgba(255,255,255,0.05); border-radius: 8px; height: 200px; }
+.featured-visual { overflow: hidden; }
+.featured-visual img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: 0.85; }
 .section-title { max-width: var(--wide); margin: 3rem auto 0; padding: 0 2rem; display: flex; align-items: center; gap: 1rem; }
 .section-title h2 { font-family: var(--font-display); font-size: 1.2rem; font-weight: 600; color: var(--brown-light); white-space: nowrap; }
 .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-.card-img { font-size: 3.5rem; }
+
+/* Card image — now a real image */
+.card-img { width: 100%; height: 180px; overflow: hidden; }
+.card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+.blog-card:hover .card-img img { transform: scale(1.04); }
+
 .newsletter { max-width: var(--wide); margin: 0 auto; padding: 2rem; }
 .newsletter-inner { background: var(--cream-dark); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; text-align: center; }
 .newsletter-inner h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
 .newsletter-inner p { color: var(--muted); margin-bottom: 1.5rem; }
-@media(max-width:700px) { .featured-card { grid-template-columns: 1fr; } .featured-visual { display: none; } }
+@media(max-width:700px) { .featured-card { grid-template-columns: 1fr; } .featured-visual { height: 200px; } }
 </style>
 </head>
 <body>
@@ -44,6 +51,8 @@
       <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
       <li><a href="blog.html" class="active">Blog</a></li>
       <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+      <li><a href="recursos-docentes.html">Para docentes</a></li>
+      <li><a href="https://davidmateos.com/contacto.html">Contacto</a></li>
     </ul>
   </div>
 </nav>
@@ -66,13 +75,16 @@
 <!-- FEATURED -->
 <div class="featured">
   <a href="blog/post-01.html" class="featured-card">
-    <div>
+    <div class="featured-text">
       <p class="featured-eyebrow">⭐ Artículo destacado · Para padres</p>
       <h2>Cómo fomentar el hábito lector en niños de 8 a 12 años: 7 estrategias que funcionan de verdad</h2>
       <p>Guía práctica con técnicas respaldadas por expertos en lectura infantil para crear lectores entusiastas desde casa.</p>
       <p class="featured-meta">📅 18 marzo 2025 &nbsp;·&nbsp; ⏱ 7 min de lectura</p>
     </div>
-    <div class="featured-visual">📚</div>
+    <div class="featured-visual">
+      <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80"
+           alt="Niño leyendo un libro">
+    </div>
   </a>
 </div>
 
@@ -82,7 +94,10 @@
 <div class="blog-grid">
 
   <a href="blog/post-02.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#4A3D6E22,#4A3D6E44)">🔍</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80"
+           alt="Libros de misterio infantil">
+    </div>
     <div class="card-body">
       <span class="tag">Recomendaciones</span>
       <h2>Los mejores libros de misterio para niños de 9 a 13 años</h2>
@@ -92,7 +107,10 @@
   </a>
 
   <a href="blog/post-03.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#2A4D6E22,#2A4D6E44)">🏫</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80"
+           alt="Aula de primaria con alumnos leyendo">
+    </div>
     <div class="card-body">
       <span class="tag">Para docentes</span>
       <h2>Cómo trabajar un libro de aventuras en el aula de Primaria</h2>
@@ -102,7 +120,10 @@
   </a>
 
   <a href="blog/post-04.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#6E3D2A22,#6E3D2A44)">✍️</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
+           alt="Escritura creativa con pluma y cuaderno">
+    </div>
     <div class="card-body">
       <span class="tag">Escritura creativa</span>
       <h2>Cómo crear personajes que los niños no olvidan</h2>
@@ -112,7 +133,10 @@
   </a>
 
   <a href="blog/post-05.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#5A3D6E22,#5A3D6E44)">👨‍👩‍👧</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
+           alt="Familia leyendo juntos">
+    </div>
     <div class="card-body">
       <span class="tag">Lectura en familia</span>
       <h2>Leer en familia: el ritual que crea lectores de por vida</h2>
@@ -122,7 +146,10 @@
   </a>
 
   <a href="blog/post-06.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#2A6E4D22,#2A6E4D44)">🗺️</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80"
+           alt="Fantasía y mundos imaginarios">
+    </div>
     <div class="card-body">
       <span class="tag">Literatura juvenil</span>
       <h2>Literatura juvenil de fantasía: por qué los mundos imaginarios son buenos para los niños</h2>
@@ -132,7 +159,10 @@
   </a>
 
   <a href="blog/post-07.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#6E5A2A22,#6E5A2A44)">🎮</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80"
+           alt="Niño concentrado con libro">
+    </div>
     <div class="card-body">
       <span class="tag">Para padres</span>
       <h2>Libros para niños que dicen que odian leer: 8 claves para dar con el libro que lo cambia todo</h2>
@@ -142,7 +172,10 @@
   </a>
 
   <a href="blog/post-08.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#2A4A6E22,#2A4A6E44)">🔎</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1587571578892-e1734d97b870?auto=format&fit=crop&w=600&q=80"
+           alt="Escritura de una historia de misterio">
+    </div>
     <div class="card-body">
       <span class="tag">Escritura creativa</span>
       <h2>Cómo escribir una historia de misterio para niños: estructura, pistas y el giro final</h2>
@@ -152,7 +185,10 @@
   </a>
 
   <a href="blog/post-09.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#4E2A6E22,#4E2A6E44)">🏛️</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=600&q=80"
+           alt="Visita cultural a museo con niños">
+    </div>
     <div class="card-body">
       <span class="tag">Cultura</span>
       <h2>Visitas culturales con niños: cómo los museos y monumentos se convierten en historias</h2>
@@ -162,7 +198,10 @@
   </a>
 
   <a href="blog/post-10.html" class="blog-card">
-    <div class="card-img" style="background:linear-gradient(135deg,#3D6E2A22,#3D6E2A44)">🌱</div>
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
+           alt="Club de lectura escolar">
+    </div>
     <div class="card-body">
       <span class="tag">Para docentes</span>
       <h2>Clubs de lectura en el colegio: cómo organizarlos y conseguir que los alumnos quieran volver</h2>
