@@ -1,0 +1,308 @@
+<!-- 
+  ══════════════════════════════════════════════════════════
+  SECCIÓN "PARA DOCENTES" — davidmateos.com
+  
+  INSTRUCCIONES DE USO:
+  ─────────────────────
+  1. Sube los tres PDFs a la carpeta /docentes/ de tu servidor:
+       /docentes/rubrica-evaluacion-lectora.pdf
+       /docentes/taller-escritura-creativa.pdf
+       /docentes/planificacion-lectura.pdf
+  
+  2. Para las 3 tarjetas con "SOLICITAR" (aún no generadas):
+     - Ficha de debate literario
+     - Guía para el encuentro con el autor
+     - Guía para montar un club de lectura
+     ... sustituye el bloque .card--contact por .card--download
+     cuando tengas los PDFs listos.
+  
+  3. Pega este bloque en tu HTML donde antes estaba la sección
+     de tarjetas. Ajusta la ruta del href si tu estructura
+     de carpetas es distinta.
+  ══════════════════════════════════════════════════════════
+-->
+
+<style>
+  /* ── Variables de la paleta davidmateos.com ─────────── */
+  :root {
+    --dm-dark:   #1A2E1A;
+    --dm-amber:  #D4A017;
+    --dm-green:  #2D6A4F;
+    --dm-cream:  #FAF7EE;
+    --dm-lgrey:  #F4F4F0;
+    --dm-border: #DDDDDD;
+    --dm-text:   #222222;
+    --dm-muted:  #666666;
+    --dm-radius: 4px;
+    --dm-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    --dm-shadow-hover: 0 6px 24px rgba(0,0,0,0.13);
+  }
+
+  /* ── Grid de tarjetas ───────────────────────────────── */
+  .recursos-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding: 0;
+    list-style: none;
+    margin: 0;
+  }
+
+  @media (max-width: 900px) {
+    .recursos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 580px) {
+    .recursos-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Tarjeta base ───────────────────────────────────── */
+  .recurso-card {
+    background: #fff;
+    border: 1px solid var(--dm-border);
+    border-radius: var(--dm-radius);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 24px 24px;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .recurso-card:hover {
+    box-shadow: var(--dm-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  /* Línea de acento superior */
+  .recurso-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--dm-amber);
+  }
+
+  /* ── Icono ──────────────────────────────────────────── */
+  .recurso-card__icon {
+    font-size: 2rem;
+    line-height: 1;
+    margin-bottom: 14px;
+    display: block;
+  }
+
+  /* ── Título ─────────────────────────────────────────── */
+  .recurso-card__title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dm-dark);
+    margin: 0 0 10px;
+    line-height: 1.3;
+  }
+
+  /* ── Descripción ────────────────────────────────────── */
+  .recurso-card__desc {
+    font-size: 0.875rem;
+    color: var(--dm-muted);
+    line-height: 1.55;
+    margin: 0 0 auto;
+    flex-grow: 1;
+    padding-bottom: 20px;
+  }
+
+  /* ── Badge "NUEVO" ──────────────────────────────────── */
+  .recurso-card__badge {
+    display: inline-block;
+    background: var(--dm-amber);
+    color: var(--dm-dark);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+
+  /* ── Botón DESCARGAR ────────────────────────────────── */
+  .btn-descargar {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    background: var(--dm-dark);
+    color: #fff !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border: 2px solid var(--dm-dark);
+    border-radius: var(--dm-radius);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s, border-color 0.18s;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .btn-descargar:hover {
+    background: var(--dm-green);
+    border-color: var(--dm-green);
+    color: #fff !important;
+  }
+
+  .btn-descargar svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+  }
+
+  /* ── Botón SOLICITAR (tarjetas pendientes) ──────────── */
+  .btn-solicitar {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 10px 18px;
+    background: transparent;
+    color: var(--dm-dark) !important;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    text-decoration: none !important;
+    border: 2px solid var(--dm-dark);
+    border-radius: var(--dm-radius);
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    align-self: flex-start;
+    margin-top: 4px;
+  }
+
+  .btn-solicitar:hover {
+    background: var(--dm-dark);
+    color: #fff !important;
+  }
+</style>
+
+<!-- ══ SECCIÓN COMPLETA ══════════════════════════════════ -->
+<section class="para-docentes" id="para-docentes">
+
+  <ul class="recursos-grid">
+
+    <!-- ── TARJETA 1: Rúbrica (PDF listo) ─────────────── -->
+    <li class="recurso-card">
+      <span class="recurso-card__badge">Nuevo</span>
+      <span class="recurso-card__icon">📊</span>
+      <h3 class="recurso-card__title">Rúbrica de evaluación lectora</h3>
+      <p class="recurso-card__desc">
+        Rúbrica para evaluar la comprensión lectora, la participación
+        en debate y la escritura creativa en el contexto de la lectura
+        de una novela. Incluye hoja de calificación y auto-evaluación
+        del alumnado. 8 páginas.
+      </p>
+      <a class="btn-descargar"
+         href="/docentes/rubrica-evaluacion-lectora.pdf"
+         download="rubrica-evaluacion-lectora.pdf"
+         aria-label="Descargar Rúbrica de evaluación lectora en PDF">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
+        </svg>
+        Descargar PDF
+      </a>
+    </li>
+
+    <!-- ── TARJETA 2: Ficha de debate (pendiente PDF) ──── -->
+    <li class="recurso-card">
+      <span class="recurso-card__icon">🧠</span>
+      <h3 class="recurso-card__title">Ficha de debate literario</h3>
+      <p class="recurso-card__desc">
+        Estructura guiada para organizar un debate sobre los dilemas
+        éticos del libro, con roles asignados y criterios de
+        participación.
+      </p>
+      <a class="btn-solicitar"
+         href="#contacto"
+         aria-label="Solicitar Ficha de debate literario">
+        Solicitar
+      </a>
+    </li>
+
+    <!-- ── TARJETA 3: Taller de escritura (PDF listo) ─── -->
+    <li class="recurso-card">
+      <span class="recurso-card__badge">Nuevo</span>
+      <span class="recurso-card__icon">✏️</span>
+      <h3 class="recurso-card__title">Taller de escritura creativa</h3>
+      <p class="recurso-card__desc">
+        Secuencia de 4 sesiones para trabajar la escritura de un relato
+        de misterio breve, inspirado en la saga Valentina Roca.
+        Incluye plantillas de personaje, pistas y auto-rúbrica.
+        11 páginas.
+      </p>
+      <a class="btn-descargar"
+         href="/docentes/taller-escritura-creativa.pdf"
+         download="taller-escritura-creativa.pdf"
+         aria-label="Descargar Taller de escritura creativa en PDF">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
+        </svg>
+        Descargar PDF
+      </a>
+    </li>
+
+    <!-- ── TARJETA 4: Planificación (PDF listo) ─────────── -->
+    <li class="recurso-card">
+      <span class="recurso-card__badge">Nuevo</span>
+      <span class="recurso-card__icon">🗓️</span>
+      <h3 class="recurso-card__title">Planificación de la lectura</h3>
+      <p class="recurso-card__desc">
+        Plantilla para organizar la lectura de un libro en 4, 6 u 8
+        semanas, con banco de 24 actividades semanales, propuestas
+        por tramo y hoja de seguimiento individual. 10 páginas.
+      </p>
+      <a class="btn-descargar"
+         href="/docentes/planificacion-lectura.pdf"
+         download="planificacion-lectura.pdf"
+         aria-label="Descargar Planificación de la lectura en PDF">
+        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
+        </svg>
+        Descargar PDF
+      </a>
+    </li>
+
+    <!-- ── TARJETA 5: Encuentro con el autor (pendiente) ── -->
+    <li class="recurso-card">
+      <span class="recurso-card__icon">🎤</span>
+      <h3 class="recurso-card__title">Guía para el encuentro con el autor</h3>
+      <p class="recurso-card__desc">
+        Cómo preparar una visita del autor al aula o una sesión por
+        videollamada: preguntas tipo, protocolo, y cómo aprovecharla
+        al máximo.
+      </p>
+      <a class="btn-solicitar"
+         href="#contacto"
+         aria-label="Solicitar Guía para el encuentro con el autor">
+        Solicitar
+      </a>
+    </li>
+
+    <!-- ── TARJETA 6: Club de lectura (pendiente) ────────── -->
+    <li class="recurso-card">
+      <span class="recurso-card__icon">🌱</span>
+      <h3 class="recurso-card__title">Guía para montar un club de lectura</h3>
+      <p class="recurso-card__desc">
+        Paso a paso para crear y mantener un club de lectura escolar:
+        estructura de las sesiones, selección de libros y actividades
+        complementarias.
+      </p>
+      <a class="btn-solicitar"
+         href="#contacto"
+         aria-label="Solicitar Guía para montar un club de lectura">
+        Solicitar
+      </a>
+    </li>
+
+  </ul>
+
+</section>
+<!-- ══ FIN SECCIÓN ════════════════════════════════════════ -->
