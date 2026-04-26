@@ -1,209 +1,226 @@
-<!-- 
-  ══════════════════════════════════════════════════════════
-  SECCIÓN "PARA DOCENTES" — davidmateos.com
-  
-  INSTRUCCIONES DE USO:
-  ─────────────────────
-  1. Sube los tres PDFs a la carpeta /docentes/ de tu servidor:
-       /docentes/rubrica-evaluacion-lectora.pdf
-       /docentes/taller-escritura-creativa.pdf
-       /docentes/planificacion-lectura.pdf
-  
-  2. Para las 3 tarjetas con "SOLICITAR" (aún no generadas):
-     - Ficha de debate literario
-     - Guía para el encuentro con el autor
-     - Guía para montar un club de lectura
-     ... sustituye el bloque .card--contact por .card--download
-     cuando tengas los PDFs listos.
-  
-  3. Pega este bloque en tu HTML donde antes estaba la sección
-     de tarjetas. Ajusta la ruta del href si tu estructura
-     de carpetas es distinta.
-  ══════════════════════════════════════════════════════════
--->
-
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recursos para docentes · David Mateos — Escritor</title>
+<meta name="description" content="Recursos gratuitos para docentes: rúbricas de evaluación lectora, talleres de escritura creativa, planificaciones de lectura y fichas de debate literario. Descarga directa en PDF.">
+<link rel="stylesheet" href="style-shared.css">
 <style>
-  /* ── Variables de la paleta davidmateos.com ─────────── */
-  :root {
-    --dm-dark:   #1A2E1A;
-    --dm-amber:  #D4A017;
-    --dm-green:  #2D6A4F;
-    --dm-cream:  #FAF7EE;
-    --dm-lgrey:  #F4F4F0;
-    --dm-border: #DDDDDD;
-    --dm-text:   #222222;
-    --dm-muted:  #666666;
-    --dm-radius: 4px;
-    --dm-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    --dm-shadow-hover: 0 6px 24px rgba(0,0,0,0.13);
-  }
+/* ── Cabecera de sección ─────────────────────────────── */
+.docentes-header {
+  background: var(--cream-dark);
+  border-bottom: 1px solid var(--border);
+  padding: 3.5rem 2rem 2.5rem;
+  text-align: center;
+}
+.docentes-header .eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 0.75rem;
+}
+.docentes-header h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+.docentes-header p {
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
 
-  /* ── Grid de tarjetas ───────────────────────────────── */
-  .recursos-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    padding: 0;
-    list-style: none;
-    margin: 0;
-  }
+/* ── Grid de tarjetas ────────────────────────────────── */
+.recursos-wrap {
+  max-width: var(--wide);
+  margin: 0 auto;
+  padding: 2.5rem 2rem 3rem;
+}
 
-  @media (max-width: 900px) {
-    .recursos-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 580px) {
-    .recursos-grid { grid-template-columns: 1fr; }
-  }
+.recursos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-  /* ── Tarjeta base ───────────────────────────────────── */
-  .recurso-card {
-    background: #fff;
-    border: 1px solid var(--dm-border);
-    border-radius: var(--dm-radius);
-    display: flex;
-    flex-direction: column;
-    padding: 28px 24px 24px;
-    transition: box-shadow 0.2s ease, transform 0.2s ease;
-    position: relative;
-    overflow: hidden;
-  }
+@media (max-width: 900px) {
+  .recursos-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 580px) {
+  .recursos-grid { grid-template-columns: 1fr; }
+}
 
-  .recurso-card:hover {
-    box-shadow: var(--dm-shadow-hover);
-    transform: translateY(-2px);
-  }
+/* ── Tarjeta ─────────────────────────────────────────── */
+.recurso-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 24px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.recurso-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  transform: translateY(-2px);
+}
+.recurso-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--amber);
+}
 
-  /* Línea de acento superior */
-  .recurso-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: var(--dm-amber);
-  }
+.recurso-card__badge {
+  display: inline-block;
+  background: var(--amber);
+  color: #1A2E1A;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  align-self: flex-start;
+}
 
-  /* ── Icono ──────────────────────────────────────────── */
-  .recurso-card__icon {
-    font-size: 2rem;
-    line-height: 1;
-    margin-bottom: 14px;
-    display: block;
-  }
+.recurso-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 14px;
+  display: block;
+}
 
-  /* ── Título ─────────────────────────────────────────── */
-  .recurso-card__title {
-    font-size: 1.05rem;
-    font-weight: 700;
-    color: var(--dm-dark);
-    margin: 0 0 10px;
-    line-height: 1.3;
-  }
+.recurso-card__title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--brown);
+  margin: 0 0 10px;
+  line-height: 1.3;
+}
 
-  /* ── Descripción ────────────────────────────────────── */
-  .recurso-card__desc {
-    font-size: 0.875rem;
-    color: var(--dm-muted);
-    line-height: 1.55;
-    margin: 0 0 auto;
-    flex-grow: 1;
-    padding-bottom: 20px;
-  }
+.recurso-card__desc {
+  font-size: 0.875rem;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 0;
+  flex-grow: 1;
+  padding-bottom: 20px;
+}
 
-  /* ── Badge "NUEVO" ──────────────────────────────────── */
-  .recurso-card__badge {
-    display: inline-block;
-    background: var(--dm-amber);
-    color: var(--dm-dark);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    padding: 2px 7px;
-    border-radius: 2px;
-    margin-bottom: 10px;
-    align-self: flex-start;
-  }
+/* ── Botones ─────────────────────────────────────────── */
+.btn-descargar,
+.btn-solicitar {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, border-color 0.18s;
+  align-self: flex-start;
+  margin-top: 4px;
+  border: 2px solid #1A2E1A;
+}
 
-  /* ── Botón DESCARGAR ────────────────────────────────── */
-  .btn-descargar {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 18px;
-    background: var(--dm-dark);
-    color: #fff !important;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    border: 2px solid var(--dm-dark);
-    border-radius: var(--dm-radius);
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s, border-color 0.18s;
-    align-self: flex-start;
-    margin-top: 4px;
-  }
+.btn-descargar {
+  background: #1A2E1A;
+  color: #fff;
+}
+.btn-descargar:hover {
+  background: #2D6A4F;
+  border-color: #2D6A4F;
+  color: #fff;
+}
+.btn-descargar svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
 
-  .btn-descargar:hover {
-    background: var(--dm-green);
-    border-color: var(--dm-green);
-    color: #fff !important;
-  }
+.btn-solicitar {
+  background: transparent;
+  color: #1A2E1A;
+}
+.btn-solicitar:hover {
+  background: #1A2E1A;
+  color: #fff;
+}
 
-  .btn-descargar svg {
-    width: 13px;
-    height: 13px;
-    flex-shrink: 0;
-  }
-
-  /* ── Botón SOLICITAR (tarjetas pendientes) ──────────── */
-  .btn-solicitar {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-    padding: 10px 18px;
-    background: transparent;
-    color: var(--dm-dark) !important;
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 0.07em;
-    text-transform: uppercase;
-    text-decoration: none !important;
-    border: 2px solid var(--dm-dark);
-    border-radius: var(--dm-radius);
-    cursor: pointer;
-    transition: background 0.18s, color 0.18s;
-    align-self: flex-start;
-    margin-top: 4px;
-  }
-
-  .btn-solicitar:hover {
-    background: var(--dm-dark);
-    color: #fff !important;
-  }
+/* ── Bloque inferior (CTA visita autor) ──────────────── */
+.docentes-cta {
+  background: #1A2E1A;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+.docentes-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+.docentes-cta p {
+  color: rgba(255,255,255,0.75);
+  max-width: 560px;
+  margin: 0 auto 1.75rem;
+}
 </style>
+</head>
+<body>
 
-<!-- ══ SECCIÓN COMPLETA ══════════════════════════════════ -->
-<section class="para-docentes" id="para-docentes">
+<nav>
+  <div class="nav-inner">
+    <a href="https://davidmateos.com/inicio.html" class="nav-logo">David Mateos</a>
+    <ul class="nav-links">
+      <li><a href="https://davidmateos.com/inicio.html">Inicio</a></li>
+      <li><a href="https://davidmateos.com/libros.html">Mis libros</a></li>
+      <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
+      <li><a href="https://davidmateos.com/blog.html">Blog</a></li>
+      <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+      <li><a href="recursos-docentes.html" class="active">Para docentes</a></li>
+      <li><a href="https://davidmateos.com/contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
 
+<!-- ── CABECERA ──────────────────────────────────────── -->
+<header class="docentes-header">
+  <p class="eyebrow">Recursos gratuitos</p>
+  <h1>Para docentes</h1>
+  <p>Materiales listos para usar en el aula: rúbricas, talleres de escritura, planificaciones de lectura y fichas de debate. Descarga directa, sin registro.</p>
+</header>
+
+<!-- ── TARJETAS ──────────────────────────────────────── -->
+<div class="recursos-wrap">
   <ul class="recursos-grid">
 
-    <!-- ── TARJETA 1: Rúbrica (PDF listo) ─────────────── -->
+    <!-- 1. Rúbrica — PDF listo -->
     <li class="recurso-card">
       <span class="recurso-card__badge">Nuevo</span>
       <span class="recurso-card__icon">📊</span>
-      <h3 class="recurso-card__title">Rúbrica de evaluación lectora</h3>
-      <p class="recurso-card__desc">
-        Rúbrica para evaluar la comprensión lectora, la participación
-        en debate y la escritura creativa en el contexto de la lectura
-        de una novela. Incluye hoja de calificación y auto-evaluación
-        del alumnado. 8 páginas.
-      </p>
+      <h2 class="recurso-card__title">Rúbrica de evaluación lectora</h2>
+      <p class="recurso-card__desc">Rúbrica para evaluar la comprensión lectora, la participación en debate y la escritura creativa en el contexto de la lectura de una novela. Incluye hoja de calificación y auto-evaluación del alumnado. 8 páginas.</p>
       <a class="btn-descargar"
          href="/docentes/rubrica-evaluacion-lectora.pdf"
-         download="rubrica-evaluacion-lectora.pdf"
-         aria-label="Descargar Rúbrica de evaluación lectora en PDF">
+         download="rubrica-evaluacion-lectora.pdf">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
         </svg>
@@ -211,37 +228,23 @@
       </a>
     </li>
 
-    <!-- ── TARJETA 2: Ficha de debate (pendiente PDF) ──── -->
+    <!-- 2. Ficha de debate — pendiente -->
     <li class="recurso-card">
       <span class="recurso-card__icon">🧠</span>
-      <h3 class="recurso-card__title">Ficha de debate literario</h3>
-      <p class="recurso-card__desc">
-        Estructura guiada para organizar un debate sobre los dilemas
-        éticos del libro, con roles asignados y criterios de
-        participación.
-      </p>
-      <a class="btn-solicitar"
-         href="#contacto"
-         aria-label="Solicitar Ficha de debate literario">
-        Solicitar
-      </a>
+      <h2 class="recurso-card__title">Ficha de debate literario</h2>
+      <p class="recurso-card__desc">Estructura guiada para organizar un debate sobre los dilemas éticos del libro, con roles asignados y criterios de participación.</p>
+      <a class="btn-solicitar" href="contacto.html">Solicitar</a>
     </li>
 
-    <!-- ── TARJETA 3: Taller de escritura (PDF listo) ─── -->
+    <!-- 3. Taller escritura — PDF listo -->
     <li class="recurso-card">
       <span class="recurso-card__badge">Nuevo</span>
       <span class="recurso-card__icon">✏️</span>
-      <h3 class="recurso-card__title">Taller de escritura creativa</h3>
-      <p class="recurso-card__desc">
-        Secuencia de 4 sesiones para trabajar la escritura de un relato
-        de misterio breve, inspirado en la saga Valentina Roca.
-        Incluye plantillas de personaje, pistas y auto-rúbrica.
-        11 páginas.
-      </p>
+      <h2 class="recurso-card__title">Taller de escritura creativa</h2>
+      <p class="recurso-card__desc">Secuencia de 4 sesiones para trabajar la escritura de un relato de misterio breve, inspirado en la saga Valentina Roca. Incluye plantillas de personaje, pistas y auto-rúbrica. 11 páginas.</p>
       <a class="btn-descargar"
          href="/docentes/taller-escritura-creativa.pdf"
-         download="taller-escritura-creativa.pdf"
-         aria-label="Descargar Taller de escritura creativa en PDF">
+         download="taller-escritura-creativa.pdf">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
         </svg>
@@ -249,20 +252,15 @@
       </a>
     </li>
 
-    <!-- ── TARJETA 4: Planificación (PDF listo) ─────────── -->
+    <!-- 4. Planificación — PDF listo -->
     <li class="recurso-card">
       <span class="recurso-card__badge">Nuevo</span>
       <span class="recurso-card__icon">🗓️</span>
-      <h3 class="recurso-card__title">Planificación de la lectura</h3>
-      <p class="recurso-card__desc">
-        Plantilla para organizar la lectura de un libro en 4, 6 u 8
-        semanas, con banco de 24 actividades semanales, propuestas
-        por tramo y hoja de seguimiento individual. 10 páginas.
-      </p>
+      <h2 class="recurso-card__title">Planificación de la lectura</h2>
+      <p class="recurso-card__desc">Plantilla para organizar la lectura de un libro en 4, 6 u 8 semanas, con banco de 24 actividades semanales, propuestas por tramo y hoja de seguimiento individual. 10 páginas.</p>
       <a class="btn-descargar"
          href="/docentes/planificacion-lectura.pdf"
-         download="planificacion-lectura.pdf"
-         aria-label="Descargar Planificación de la lectura en PDF">
+         download="planificacion-lectura.pdf">
         <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M8 2v8M4 7l4 4 4-4"/><rect x="2" y="12" width="12" height="2" rx="1" fill="currentColor" stroke="none"/>
         </svg>
@@ -270,39 +268,38 @@
       </a>
     </li>
 
-    <!-- ── TARJETA 5: Encuentro con el autor (pendiente) ── -->
+    <!-- 5. Encuentro autor — pendiente -->
     <li class="recurso-card">
       <span class="recurso-card__icon">🎤</span>
-      <h3 class="recurso-card__title">Guía para el encuentro con el autor</h3>
-      <p class="recurso-card__desc">
-        Cómo preparar una visita del autor al aula o una sesión por
-        videollamada: preguntas tipo, protocolo, y cómo aprovecharla
-        al máximo.
-      </p>
-      <a class="btn-solicitar"
-         href="#contacto"
-         aria-label="Solicitar Guía para el encuentro con el autor">
-        Solicitar
-      </a>
+      <h2 class="recurso-card__title">Guía para el encuentro con el autor</h2>
+      <p class="recurso-card__desc">Cómo preparar una visita del autor al aula o una sesión por videollamada: preguntas tipo, protocolo, y cómo aprovecharla al máximo.</p>
+      <a class="btn-solicitar" href="contacto.html">Solicitar</a>
     </li>
 
-    <!-- ── TARJETA 6: Club de lectura (pendiente) ────────── -->
+    <!-- 6. Club de lectura — pendiente -->
     <li class="recurso-card">
       <span class="recurso-card__icon">🌱</span>
-      <h3 class="recurso-card__title">Guía para montar un club de lectura</h3>
-      <p class="recurso-card__desc">
-        Paso a paso para crear y mantener un club de lectura escolar:
-        estructura de las sesiones, selección de libros y actividades
-        complementarias.
-      </p>
-      <a class="btn-solicitar"
-         href="#contacto"
-         aria-label="Solicitar Guía para montar un club de lectura">
-        Solicitar
-      </a>
+      <h2 class="recurso-card__title">Guía para montar un club de lectura</h2>
+      <p class="recurso-card__desc">Paso a paso para crear y mantener un club de lectura escolar: estructura de las sesiones, selección de libros y actividades complementarias.</p>
+      <a class="btn-solicitar" href="contacto.html">Solicitar</a>
     </li>
 
   </ul>
+</div>
 
-</section>
-<!-- ══ FIN SECCIÓN ════════════════════════════════════════ -->
+<!-- ── CTA VISITA ─────────────────────────────────────── -->
+<div class="docentes-cta">
+  <h2>¿Quieres que David Mateos visite tu centro?</h2>
+  <p>El autor realiza visitas a colegios e institutos: presentaciones de la saga <em>Valentina Roca</em>, talleres de escritura creativa y charlas sobre cómo construir una trama desde cero.</p>
+  <a href="contacto.html" class="btn btn-amber">Contactar</a>
+</div>
+
+<footer>
+  <p>© 2025 David Mateos · Escritor español · <a href="https://davidmateos.com">davidmateos.com</a></p>
+</footer>
+
+<div class="footer-copy">© 2026 David Mateos Pascual</div>
+<script src="/nav.js"></script>
+
+</body>
+</html>
