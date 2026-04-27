@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worldbuilding para principiantes: cómo construir un mundo de fantasía desde cero · David Mateos</title>
+<meta name="description" content="Método paso a paso para crear mundos imaginarios creíbles y coherentes. Con ejemplos reales de la construcción de Gembliland en la saga Calan Kennett.">
+<meta name="keywords" content="worldbuilding para principiantes, cómo crear un mundo de fantasía, construcción de mundos ficticios, escribir fantasía juvenil, Gembliland Calan Kennett">
+<meta property="og:title" content="Worldbuilding para principiantes: cómo construir un mundo de fantasía desde cero">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://davidmateos.com/blog/post-13.html">
+<link rel="canonical" href="https://davidmateos.com/blog/post-13.html">
+<link rel="stylesheet" href="../style-shared.css">
+<style>
+.post-hero { background: var(--cream-dark); border-bottom: 1px solid var(--border); padding: 3.5rem 2rem 0; }
+.post-hero-inner { max-width: 780px; margin: 0 auto; }
+.post-back { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--amber); text-decoration: none; margin-bottom: 1.5rem; }
+.post-back:hover { opacity: 0.75; }
+.post-tag { display: inline-block; background: var(--amber); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 999px; margin-bottom: 1rem; }
+.post-hero h1 { font-family: var(--font-display); font-size: clamp(1.6rem, 4vw, 2.6rem); line-height: 1.2; margin-bottom: 1rem; }
+.post-meta { font-size: 0.82rem; color: var(--muted); margin-bottom: 2rem; display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.post-cover { max-width: 780px; margin: 0 auto; border-radius: 12px 12px 0 0; overflow: hidden; height: 360px; }
+.post-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.post-body { max-width: 780px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+.post-body h2 { font-family: var(--font-display); font-size: 1.4rem; margin: 2.5rem 0 0.75rem; color: var(--brown); }
+.post-body h3 { font-size: 1.05rem; font-weight: 700; margin: 1.5rem 0 0.5rem; color: var(--brown-light); }
+.post-body p { margin-bottom: 1.1rem; line-height: 1.75; color: var(--text); }
+.post-body ul, .post-body ol { margin: 0 0 1.1rem 1.5rem; }
+.post-body li { margin-bottom: 0.5rem; line-height: 1.7; color: var(--text); }
+.post-body strong { color: var(--brown); }
+.highlight-box { background: var(--cream-dark); border-left: 4px solid var(--amber); padding: 1.25rem 1.5rem; border-radius: 0 8px 8px 0; margin: 1.5rem 0; }
+.highlight-box p { margin: 0; font-style: italic; }
+.step-box { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem 1.5rem; margin: 1rem 0; display: flex; gap: 1rem; align-items: flex-start; }
+.step-num { background: var(--amber); color: #fff; font-weight: 700; font-size: 1rem; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 2px; }
+.step-content h4 { font-weight: 700; margin: 0 0 0.4rem; color: var(--brown); }
+.step-content p { margin: 0; font-size: 0.92rem; color: var(--text); line-height: 1.65; }
+.related { background: var(--cream-dark); border-top: 1px solid var(--border); padding: 3rem 2rem; margin-top: 2rem; }
+.related-inner { max-width: 780px; margin: 0 auto; }
+.related h2 { font-family: var(--font-display); font-size: 1.2rem; margin-bottom: 1.5rem; color: var(--brown); }
+.related-links { display: flex; flex-direction: column; gap: 0.75rem; }
+.related-links a { color: var(--amber); font-weight: 600; text-decoration: none; font-size: 0.92rem; }
+.related-links a:hover { text-decoration: underline; }
+.author-box { border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; margin-top: 2.5rem; background: #fff; }
+.author-box h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 0.25rem; color: var(--brown); }
+.author-box p { margin: 0; font-size: 0.85rem; color: var(--muted); line-height: 1.6; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="https://davidmateos.com/" class="nav-logo">David Mateos</a>
+    <ul class="nav-links">
+      <li><a href="https://davidmateos.com/">Inicio</a></li>
+      <li><a href="https://davidmateos.com/libros.html">Mis libros</a></li>
+      <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
+      <li><a href="../blog.html" class="active">Blog</a></li>
+      <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+      <li><a href="../recursos-docentes.html">Para docentes</a></li>
+      <li><a href="https://davidmateos.com/contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="post-hero">
+  <div class="post-hero-inner">
+    <a href="../blog.html" class="post-back">← Volver al blog</a>
+    <div class="post-tag">Escritura creativa</div>
+    <h1>Worldbuilding para principiantes: cómo construir un mundo de fantasía desde cero</h1>
+    <div class="post-meta">
+      <span>📅 1 de septiembre de 2025</span>
+      <span>⏱ 9 min de lectura</span>
+      <span>✍️ David Mateos</span>
+    </div>
+  </div>
+  <div class="post-cover">
+    <img src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?auto=format&fit=crop&w=1200&q=80" alt="Mapa fantástico dibujado a mano">
+  </div>
+</div>
+
+<div class="post-body">
+
+  <p>Cuando empecé a escribir la saga Calan Kennett, uno de los primeros retos fue construir Gembliland: el mundo subterráneo que existe bajo la tierra de Inglaterra, habitado por los geblis. Tenía claro que quería algo distinto a los mundos de fantasía estándar —sin elfos, sin dragones, sin castillos medievales— pero no tenía todavía un método para construirlo.</p>
+
+  <p>Lo que aprendí en ese proceso es lo que voy a compartir aquí: un método para construir mundos de fantasía desde cero que funciona tanto para escritores adultos como para niños y adolescentes que quieran crear sus propias historias.</p>
+
+  <h2>El error más común del worldbuilding: empezar por el mapa</h2>
+
+  <p>La primera reacción de la mayoría de escritores noveles cuando quieren crear un mundo de fantasía es dibujar un mapa. Es comprensible: los mapas son visuales, tangibles, dan una sensación de control. Pero es el error más común.</p>
+
+  <p>El problema de empezar por el mapa es que te ancla a la geografía antes de tener claro qué tipo de historia quieres contar. Y la geografía debería servir a la historia, no al revés. Un desierto no es interesante porque es un desierto; es interesante porque obliga a los personajes a sobrevivir, a tomar decisiones, a revelarse.</p>
+
+  <p>El punto de partida correcto no es el espacio, sino la <strong>tensión central</strong>: ¿qué conflicto fundamental define este mundo? En Gembliland, la tensión central es la de un mundo pacífico y oculto que debe decidir si pide ayuda al mundo humano o protege su secreto a cualquier precio.</p>
+
+  <h2>El método de las 5 preguntas esenciales</h2>
+
+  <p>Antes de escribir una sola línea del mundo, responde estas cinco preguntas. No hace falta que las respuestas sean extensas: con un párrafo por cada una es suficiente para empezar.</p>
+
+  <div class="step-box">
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <h4>¿Qué hace a este mundo diferente del nuestro?</h4>
+      <p>Identifica la regla fundamental que cambia todo. Puede ser física (la gravedad funciona al revés), social (no existe el concepto de propiedad privada) o mágica (las emociones tienen color visible). Esa regla es la semilla de todo lo demás.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <h4>¿Quién tiene el poder y quién no lo tiene?</h4>
+      <p>Todo mundo tiene una estructura de poder. ¿Quién manda? ¿Quién obedece? ¿Existen clases, castas, razas con distintos derechos? La respuesta a esta pregunta genera automáticamente conflictos y personajes interesantes.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <h4>¿Cuál es el mayor miedo colectivo de este mundo?</h4>
+      <p>Los mundos bien construidos tienen miedos compartidos: el invierno que se acerca, el regreso del antiguo mal, la escasez de recursos. Ese miedo colectivo da cohesión al mundo y explica por qué los personajes hacen lo que hacen.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <h4>¿Qué creen que es sagrado (o intocable)?</h4>
+      <p>Las culturas se definen por lo que consideran sagrado. En los geblis, la norma intocable es no dejar nunca a nadie en apuros sin ofrecer ayuda. Esa norma cultural genera situaciones narrativas automáticamente.</p>
+    </div>
+  </div>
+
+  <div class="step-box">
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <h4>¿Cómo llegó el mundo a ser lo que es?</h4>
+      <p>No hace falta escribir una historia completa del mundo, pero sí tener una respuesta vaga a esta pregunta. La historia pasada del mundo explica sus cicatrices, sus tabúes y sus esperanzas.</p>
+    </div>
+  </div>
+
+  <h2>La regla de los tres niveles</h2>
+
+  <p>Un buen mundo de fantasía funciona en tres niveles simultáneos. Si solo construyes uno o dos, el mundo se siente incompleto.</p>
+
+  <h3>Nivel 1: Lo que el lector ve</h3>
+  <p>Los escenarios concretos: cómo huele un mercado, cómo suenan las calles, qué aspecto tiene la arquitectura, cómo visten los personajes. Este nivel es el más fácil de construir y el más importante para la inmersión del lector.</p>
+
+  <h3>Nivel 2: Lo que el lector intuye</h3>
+  <p>Las normas sociales, las jerarquías, las relaciones entre grupos. No se explican directamente: se demuestran en cómo los personajes se tratan entre sí, a qué tienen miedo, de qué no se habla en voz alta.</p>
+
+  <h3>Nivel 3: Lo que el lector nunca verá</h3>
+  <p>La historia del mundo antes de que empiece la historia. El escritor necesita saber esto, aunque nunca lo cuente directamente. Esta capa le da profundidad y coherencia al mundo: cuando surge una pregunta sobre por qué algo es como es, el escritor tiene la respuesta, aunque no la comparta.</p>
+
+  <div class="highlight-box">
+    <p>Tolkien tenía miles de páginas de historia de la Tierra Media que nunca aparecieron en El Señor de los Anillos. Pero esa historia invisible es la que hace que el mundo se sienta real.</p>
+  </div>
+
+  <h2>Cómo construí Gembliland: ejemplo práctico</h2>
+
+  <p>Cuando empecé a crear Gembliland para la saga Calan Kennett, apliqué (sin saberlo todavía) este método. Aquí están mis respuestas a las cinco preguntas esenciales:</p>
+
+  <ul>
+    <li><strong>¿Qué lo hace diferente?</strong> Existe bajo nuestros pies desde antes de que existieran los humanos, y sus habitantes son incapaces de ignorar el sufrimiento ajeno.</li>
+    <li><strong>¿Quién tiene el poder?</strong> No hay jerarquías rígidas: el poder lo tiene quien más sabe o quien más ayuda, no quien ha nacido en la posición correcta.</li>
+    <li><strong>¿Cuál es el mayor miedo?</strong> Ser descubiertos por los humanos y perder el único mundo que conocen.</li>
+    <li><strong>¿Qué es sagrado?</strong> Nunca dejar a nadie atrás. La solidaridad es la ley más antigua de Gembliland.</li>
+    <li><strong>¿Cómo llegó a ser?</strong> Los geblis llevan tanto tiempo bajo la tierra que ya no recuerdan cómo fue la vida antes. El secreto se ha convertido en parte de su identidad.</li>
+  </ul>
+
+  <p>A partir de esas respuestas, el resto del mundo creció de forma casi orgánica.</p>
+
+  <h2>Consejo final: construye solo lo que necesitas</h2>
+
+  <p>El error opuesto a no construir el mundo es construir demasiado. He conocido escritores que llevan años elaborando el diccionario de la lengua élfica de su mundo antes de haber escrito una sola página de su historia. Eso es procrastinación disfrazada de preparación.</p>
+
+  <p>Construye el mundo en la medida en que la historia lo necesita. Si la historia transcurre en una ciudad, construye esa ciudad a fondo. El continente al otro lado del mar puede esperar al segundo libro.</p>
+
+  <div class="author-box">
+    <h3>David Mateos</h3>
+    <p>Autor de las sagas <a href="https://davidmateos.com/libros.html">Valentina Roca</a> y <a href="https://davidmateos.com/libros.html">Calan Kennett</a>. Si escribes tu propia historia de fantasía, puedes escribirle a través de <a href="https://davidmateos.com/contacto.html">davidmateos.com</a>.</p>
+  </div>
+
+</div>
+
+<div class="related">
+  <div class="related-inner">
+    <h2>Artículos relacionados</h2>
+    <div class="related-links">
+      <a href="post-04.html">→ Cómo crear personajes que los niños no olvidan</a>
+      <a href="post-08.html">→ Cómo escribir una historia de misterio: estructura, pistas y el giro final</a>
+      <a href="post-19.html">→ Cómo escribir diálogos que suenen reales: técnicas para escritores jóvenes</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>© 2025 David Mateos · Escritor español · <a href="https://davidmateos.com">davidmateos.com</a></p>
+</footer>
+<script src="/nav.js"></script>
+</body>
+</html>
