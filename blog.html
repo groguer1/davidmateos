@@ -64,12 +64,12 @@
 </header>
 
 <div class="filter-bar">
-  <button class="filter-btn active">Todos</button>
-  <button class="filter-btn">Para padres</button>
-  <button class="filter-btn">Para docentes</button>
-  <button class="filter-btn">Literatura juvenil</button>
-  <button class="filter-btn">Escritura creativa</button>
-  <button class="filter-btn">Recomendaciones</button>
+  <button class="filter-btn active" data-filter="todos">Todos</button>
+  <button class="filter-btn" data-filter="para-padres">Para padres</button>
+  <button class="filter-btn" data-filter="para-docentes">Para docentes</button>
+  <button class="filter-btn" data-filter="literatura-juvenil">Literatura juvenil</button>
+  <button class="filter-btn" data-filter="escritura-creativa">Escritura creativa</button>
+  <button class="filter-btn" data-filter="recomendaciones">Recomendaciones</button>
 </div>
 
 <!-- FEATURED -->
@@ -93,7 +93,7 @@
 
 <div class="blog-grid">
 
-  <a href="blog/post-02.html" class="blog-card">
+  <a href="blog/post-02.html" class="blog-card" data-category="recomendaciones">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=600&q=80"
            alt="Libros de misterio infantil">
@@ -106,7 +106,7 @@
     <div class="card-footer"><span>📅 2 abril 2025</span><span>⏱ 8 min</span></div>
   </a>
 
-  <a href="blog/post-03.html" class="blog-card">
+  <a href="blog/post-03.html" class="blog-card" data-category="para-docentes">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80"
            alt="Aula de primaria con alumnos leyendo">
@@ -119,7 +119,7 @@
     <div class="card-footer"><span>📅 15 abril 2025</span><span>⏱ 9 min</span></div>
   </a>
 
-  <a href="blog/post-04.html" class="blog-card">
+  <a href="blog/post-04.html" class="blog-card" data-category="escritura-creativa">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80"
            alt="Escritura creativa con pluma y cuaderno">
@@ -132,7 +132,7 @@
     <div class="card-footer"><span>📅 28 abril 2025</span><span>⏱ 7 min</span></div>
   </a>
 
-  <a href="blog/post-05.html" class="blog-card">
+  <a href="blog/post-05.html" class="blog-card" data-category="para-padres">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80"
            alt="Familia leyendo juntos">
@@ -145,7 +145,7 @@
     <div class="card-footer"><span>📅 12 mayo 2025</span><span>⏱ 6 min</span></div>
   </a>
 
-  <a href="blog/post-06.html" class="blog-card">
+  <a href="blog/post-06.html" class="blog-card" data-category="literatura-juvenil">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=600&q=80"
            alt="Fantasía y mundos imaginarios">
@@ -158,7 +158,7 @@
     <div class="card-footer"><span>📅 26 mayo 2025</span><span>⏱ 8 min</span></div>
   </a>
 
-  <a href="blog/post-07.html" class="blog-card">
+  <a href="blog/post-07.html" class="blog-card" data-category="para-padres">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=600&q=80"
            alt="Niño concentrado con libro">
@@ -171,7 +171,7 @@
     <div class="card-footer"><span>📅 9 junio 2025</span><span>⏱ 7 min</span></div>
   </a>
 
-  <a href="blog/post-08.html" class="blog-card">
+  <a href="blog/post-08.html" class="blog-card" data-category="escritura-creativa">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1526243741027-444d633d7365?auto=format&fit=crop&w=600&q=80"
            alt="Escritura de una historia de misterio">
@@ -184,7 +184,7 @@
     <div class="card-footer"><span>📅 23 junio 2025</span><span>⏱ 8 min</span></div>
   </a>
 
-  <a href="blog/post-09.html" class="blog-card">
+  <a href="blog/post-09.html" class="blog-card" data-category="para-padres">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1554907984-15263bfd63bd?auto=format&fit=crop&w=600&q=80"
            alt="Visita cultural a museo con niños">
@@ -197,7 +197,7 @@
     <div class="card-footer"><span>📅 7 julio 2025</span><span>⏱ 6 min</span></div>
   </a>
 
-  <a href="blog/post-10.html" class="blog-card">
+  <a href="blog/post-10.html" class="blog-card" data-category="para-docentes">
     <div class="card-img">
       <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=600&q=80"
            alt="Club de lectura escolar">
@@ -210,9 +210,157 @@
     <div class="card-footer"><span>📅 21 julio 2025</span><span>⏱ 7 min</span></div>
   </a>
 
+  <a href="blog/post-11.html" class="blog-card" data-category="para-padres">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=600&q=80"
+           alt="Niño leyendo en verano">
+    </div>
+    <div class="card-body">
+      <span class="tag">Para padres</span>
+      <h2>Cómo mantener el hábito lector en verano: guía para padres</h2>
+      <p>Estrategias concretas para que los niños no abandonen la lectura durante las vacaciones de verano.</p>
+    </div>
+    <div class="card-footer"><span>📅 4 agosto 2025</span><span>⏱ 6 min</span></div>
+  </a>
+
+  <a href="blog/post-12.html" class="blog-card" data-category="literatura-juvenil">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=600&q=80"
+           alt="Saga de libros juveniles">
+    </div>
+    <div class="card-body">
+      <span class="tag">Literatura juvenil</span>
+      <h2>Por qué las sagas funcionan tan bien con los lectores jóvenes</h2>
+      <p>Claves narrativas y psicológicas que explican por qué los adolescentes se enganchan a las sagas de libros.</p>
+    </div>
+    <div class="card-footer"><span>📅 18 agosto 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+  <a href="blog/post-13.html" class="blog-card" data-category="escritura-creativa">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1516414447565-b14be0adf13e?auto=format&fit=crop&w=600&q=80"
+           alt="Escritura de worldbuilding">
+    </div>
+    <div class="card-body">
+      <span class="tag">Escritura creativa</span>
+      <h2>Worldbuilding para principiantes: cómo construir un mundo de fantasía desde cero</h2>
+      <p>Método paso a paso para crear mundos imaginarios creíbles y coherentes, con ejemplos de la saga Calan Kennett.</p>
+    </div>
+    <div class="card-footer"><span>📅 1 septiembre 2025</span><span>⏱ 9 min</span></div>
+  </a>
+
+  <a href="blog/post-14.html" class="blog-card" data-category="para-docentes">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80"
+           alt="Evaluación lectora en el aula">
+    </div>
+    <div class="card-body">
+      <span class="tag">Para docentes</span>
+      <h2>Cómo evaluar la comprensión lectora sin que parezca un examen</h2>
+      <p>Alternativas creativas y eficaces a las preguntas de control para evaluar la lectura en ESO y Primaria.</p>
+    </div>
+    <div class="card-footer"><span>📅 15 septiembre 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-15.html" class="blog-card" data-category="recomendaciones">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=600&q=80"
+           alt="Libros de aventuras juveniles">
+    </div>
+    <div class="card-body">
+      <span class="tag">Recomendaciones</span>
+      <h2>10 libros de aventuras para adolescentes que no pueden parar de leer</h2>
+      <p>Selección actualizada de novelas de aventura y fantasía juvenil, incluyendo las mejores sagas en español.</p>
+    </div>
+    <div class="card-footer"><span>📅 29 septiembre 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-16.html" class="blog-card" data-category="para-padres">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1484820540004-14229fe36ca4?auto=format&fit=crop&w=600&q=80"
+           alt="Niño con pantalla vs libro">
+    </div>
+    <div class="card-body">
+      <span class="tag">Para padres</span>
+      <h2>Pantallas vs libros: cómo encontrar el equilibrio sin peleas en casa</h2>
+      <p>Enfoque práctico para que la lectura compita en igualdad de condiciones con los videojuegos y el móvil.</p>
+    </div>
+    <div class="card-footer"><span>📅 13 octubre 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+  <a href="blog/post-17.html" class="blog-card" data-category="literatura-juvenil">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1518756131217-31eb79b20e8f?auto=format&fit=crop&w=600&q=80"
+           alt="Villanos en literatura juvenil">
+    </div>
+    <div class="card-body">
+      <span class="tag">Literatura juvenil</span>
+      <h2>Los grandes villanos de la literatura juvenil: qué los hace inolvidables</h2>
+      <p>Análisis de los antagonistas más memorables de la ficción juvenil y qué puede aprender un escritor de ellos.</p>
+    </div>
+    <div class="card-footer"><span>📅 27 octubre 2025</span><span>⏱ 8 min</span></div>
+  </a>
+
+  <a href="blog/post-18.html" class="blog-card" data-category="para-docentes">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?auto=format&fit=crop&w=600&q=80"
+           alt="Taller de escritura en el aula">
+    </div>
+    <div class="card-body">
+      <span class="tag">Para docentes</span>
+      <h2>Talleres de escritura creativa en el aula: 8 dinámicas que funcionan de verdad</h2>
+      <p>Propuestas concretas para estimular la escritura en Primaria y ESO, con actividades testadas en el aula.</p>
+    </div>
+    <div class="card-footer"><span>📅 10 noviembre 2025</span><span>⏱ 9 min</span></div>
+  </a>
+
+  <a href="blog/post-19.html" class="blog-card" data-category="escritura-creativa">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1542435503-956c469947f6?auto=format&fit=crop&w=600&q=80"
+           alt="Escritura de diálogos">
+    </div>
+    <div class="card-body">
+      <span class="tag">Escritura creativa</span>
+      <h2>Cómo escribir diálogos que suenen reales: técnicas para escritores jóvenes</h2>
+      <p>Los errores más comunes al escribir diálogos y cómo evitarlos, con ejemplos de Valentina Roca y Calan Kennett.</p>
+    </div>
+    <div class="card-footer"><span>📅 24 noviembre 2025</span><span>⏱ 7 min</span></div>
+  </a>
+
+  <a href="blog/post-20.html" class="blog-card" data-category="recomendaciones">
+    <div class="card-img">
+      <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80"
+           alt="Libros navidad niños">
+    </div>
+    <div class="card-body">
+      <span class="tag">Recomendaciones</span>
+      <h2>Los mejores libros para regalar a niños y adolescentes estas Navidades</h2>
+      <p>Guía de regalos lectores por edades: desde los 8 hasta los 16 años, con recomendaciones para todos los gustos.</p>
+    </div>
+    <div class="card-footer"><span>📅 8 diciembre 2025</span><span>⏱ 6 min</span></div>
+  </a>
+
 </div>
 
-<!-- NEWSLETTER -->
+<script>
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.blog-grid .blog-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'todos' || card.dataset.category === filter) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
 <div class="newsletter">
   <div class="newsletter-inner">
     <h2>Recibe los nuevos artículos en tu correo</h2>
