@@ -405,23 +405,35 @@
 <script src="/nav.js"></script>
 
 <!-- POPUP DESCARGA -->
+<!-- POPUP DESCARGA -->
 <div id="download-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:12px;padding:2rem 2.5rem;max-width:460px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
+  <div style="background:#fff;border-radius:12px;padding:2rem 2.5rem;max-width:480px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
     <button onclick="cerrarPopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888;">✕</button>
     <div style="font-size:2rem;margin-bottom:0.5rem;">📥</div>
     <h3 style="font-family:Georgia,serif;font-size:1.15rem;color:#2c2620;margin-bottom:0.4rem;">Tu recurso está listo</h3>
-    <p style="font-size:0.83rem;color:#666;margin-bottom:1rem;">Deja tu email y descárgalo al momento. También recibirás materiales exclusivos para docentes.</p>
-    <iframe id="brevo-form" src="https://9a7395d6.sibforms.com/serve/MUIFAGinb1SNUH0u0rIiVMVvZakr29bGBRTgABGCLiVXN6oC9Ku8rTg_zti2K08ORTczqzBv6xfA610Aq1rWysy7uEoGQQBo4KDFJbWZ-4_J416lM0YSmEnChmQHAp_wLBk8LbVo0m3d6jebcCjekS0-UZbCR0Qbn7LeGyq6-BiFIjDLRZeSfsnpQls4DKutEwnQq_7YfbMPjrs1cg==" frameborder="0" scrolling="auto" allowfullscreen style="width:100%;height:180px;border:none;"></iframe>
+    <p style="font-size:0.83rem;color:#666;margin-bottom:1rem;">Suscríbete para descargarlo al momento. Sin spam, solo materiales para docentes.</p>
+
+    <div id="popup-paso1">
+      <iframe src="https://9a7395d6.sibforms.com/serve/MUIFAGinb1SNUH0u0rIiVMVvZakr29bGBRTgABGCLiVXN6oC9Ku8rTg_zti2K08ORTczqzBv6xfA610Aq1rWysy7uEoGQQBo4KDFJbWZ-4_J416lM0YSmEnChmQHAp_wLBk8LbVo0m3d6jebcCjekS0-UZbCR0Qbn7LeGyq6-BiFIjDLRZeSfsnpQls4DKutEwnQq_7YfbMPjrs1cg==" frameborder="0" scrolling="auto" allowfullscreen style="width:100%;height:200px;border:none;display:block;"></iframe>
+      <p style="font-size:0.78rem;color:#aaa;margin-top:0.5rem;text-align:center;">Tras suscribirte pulsa el botón de abajo</p>
+      <button onclick="mostrarDescarga()" style="width:100%;margin-top:0.5rem;padding:0.65rem;background:#1A2E1A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;">Ya me he suscrito → Descargar</button>
+    </div>
+
+    <div id="popup-paso2" style="display:none;text-align:center;padding:1rem 0;">
+      <div style="font-size:2.5rem;margin-bottom:0.75rem;">🎉</div>
+      <p style="font-size:0.95rem;color:#2c2620;font-weight:600;margin-bottom:1.25rem;">¡Gracias! Tu descarga comenzará en un momento.</p>
+      <button onclick="lanzarDescarga()" style="padding:0.7rem 2rem;background:#1A2E1A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;">📥 Descargar ahora</button>
+    </div>
   </div>
 </div>
 
 <script>
 var _downloadUrl = '';
-var _descargado = false;
 
 function abrirPopup(url) {
   _downloadUrl = url;
-  _descargado = false;
+  document.getElementById('popup-paso1').style.display = 'block';
+  document.getElementById('popup-paso2').style.display = 'none';
   document.getElementById('download-overlay').style.display = 'flex';
 }
 
@@ -429,19 +441,20 @@ function cerrarPopup() {
   document.getElementById('download-overlay').style.display = 'none';
 }
 
-window.addEventListener('message', function(e) {
-  if (_descargado) return;
-  if (e.data && (e.data.type === 'form-submitted' || (typeof e.data === 'string' && e.data.includes('submit')))) {
-    _descargado = true;
-    cerrarPopup();
-    var a = document.createElement('a');
-    a.href = _downloadUrl;
-    a.download = '';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
-});
+function mostrarDescarga() {
+  document.getElementById('popup-paso1').style.display = 'none';
+  document.getElementById('popup-paso2').style.display = 'block';
+}
+
+function lanzarDescarga() {
+  cerrarPopup();
+  var a = document.createElement('a');
+  a.href = _downloadUrl;
+  a.download = '';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
 
 document.addEventListener('click', function(e) {
   var link = e.target.closest('a[download]');
