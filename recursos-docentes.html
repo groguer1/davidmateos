@@ -405,64 +405,43 @@
 <script src="/nav.js"></script>
 
 <!-- POPUP DESCARGA -->
-<div id="download-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:9999;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:12px;padding:2rem 2.5rem;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,0.25);position:relative;">
+<div id="download-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:9999;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:12px;padding:2rem 2.5rem;max-width:460px;width:92%;box-shadow:0 20px 60px rgba(0,0,0,0.3);position:relative;">
     <button onclick="cerrarPopup()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;font-size:1.3rem;cursor:pointer;color:#888;">✕</button>
     <div style="font-size:2rem;margin-bottom:0.5rem;">📥</div>
-    <h3 style="font-family:Georgia,serif;font-size:1.2rem;color:#2c2620;margin-bottom:0.4rem;">Tu recurso está listo</h3>
-    <p style="font-size:0.85rem;color:#666;margin-bottom:1.25rem;">Deja tu email y te lo descargamos al momento. También recibirás novedades y materiales exclusivos para docentes.</p>
-    <input id="popup-email" type="email" placeholder="tu@email.com" style="width:100%;padding:0.6rem 0.85rem;border:1.5px solid #ddd;border-radius:6px;font-size:0.9rem;box-sizing:border-box;margin-bottom:0.75rem;">
-    <p id="popup-error" style="color:#c0392b;font-size:0.78rem;display:none;margin-bottom:0.5rem;">Por favor introduce un email válido.</p>
-    <button onclick="enviarYDescargar()" style="width:100%;padding:0.65rem;background:#1A2E1A;color:#fff;border:none;border-radius:6px;font-size:0.85rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;cursor:pointer;">Descargar ahora</button>
-    <p style="font-size:0.72rem;color:#aaa;margin-top:0.75rem;text-align:center;">Sin spam. Puedes darte de baja cuando quieras.</p>
+    <h3 style="font-family:Georgia,serif;font-size:1.15rem;color:#2c2620;margin-bottom:0.4rem;">Tu recurso está listo</h3>
+    <p style="font-size:0.83rem;color:#666;margin-bottom:1rem;">Deja tu email y descárgalo al momento. También recibirás materiales exclusivos para docentes.</p>
+    <iframe id="brevo-form" src="https://9a7395d6.sibforms.com/serve/MUIFAGinb1SNUH0u0rIiVMVvZakr29bGBRTgABGCLiVXN6oC9Ku8rTg_zti2K08ORTczqzBv6xfA610Aq1rWysy7uEoGQQBo4KDFJbWZ-4_J416lM0YSmEnChmQHAp_wLBk8LbVo0m3d6jebcCjekS0-UZbCR0Qbn7LeGyq6-BiFIjDLRZeSfsnpQls4DKutEwnQq_7YfbMPjrs1cg==" frameborder="0" scrolling="auto" allowfullscreen style="width:100%;height:180px;border:none;"></iframe>
   </div>
 </div>
 
 <script>
 var _downloadUrl = '';
+var _descargado = false;
 
 function abrirPopup(url) {
   _downloadUrl = url;
-  document.getElementById('popup-email').value = '';
-  document.getElementById('popup-error').style.display = 'none';
-  var overlay = document.getElementById('download-overlay');
-  overlay.style.display = 'flex';
+  _descargado = false;
+  document.getElementById('download-overlay').style.display = 'flex';
 }
 
 function cerrarPopup() {
   document.getElementById('download-overlay').style.display = 'none';
 }
 
-function enviarYDescargar() {
-  var email = document.getElementById('popup-email').value.trim();
-  var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!re.test(email)) {
-    document.getElementById('popup-error').style.display = 'block';
-    return;
+window.addEventListener('message', function(e) {
+  if (_descargado) return;
+  if (e.data && (e.data.type === 'form-submitted' || (typeof e.data === 'string' && e.data.includes('submit')))) {
+    _descargado = true;
+    cerrarPopup();
+    var a = document.createElement('a');
+    a.href = _downloadUrl;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
   }
-  document.getElementById('popup-error').style.display = 'none';
-
-  fetch('https://api.brevo.com/v3/contacts', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'api-key': ''
-    },
-    body: JSON.stringify({
-      email: email,
-      listIds: [2],
-      updateEnabled: true
-    })
-  }).catch(function(){});
-
-  cerrarPopup();
-  var a = document.createElement('a');
-  a.href = _downloadUrl;
-  a.download = '';
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
-}
+});
 
 document.addEventListener('click', function(e) {
   var link = e.target.closest('a[download]');
@@ -472,6 +451,7 @@ document.addEventListener('click', function(e) {
   }
 });
 </script>
+  
 
 </body>
 </html>
