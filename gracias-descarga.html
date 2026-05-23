@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>¡Gracias! Tu descarga está lista · David Mateos</title>
+<link rel="stylesheet" href="style-shared.css">
+<style>
+.gracias-wrap {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1.5rem;
+}
+.gracias-card {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  max-width: 480px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(44,38,32,0.10);
+}
+.gracias-icon { font-size: 3.5rem; margin-bottom: 1rem; }
+.gracias-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--brown);
+  margin-bottom: 0.75rem;
+}
+.gracias-card p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 1.75rem;
+}
+.btn-descarga {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 2rem;
+  background: #1A2E1A;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background .2s;
+}
+.btn-descarga:hover { background: #2D6A4F; color: #fff; }
+.nota {
+  margin-top: 1.25rem;
+  font-size: 0.75rem;
+  color: #bbb;
+}
+.volver {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  text-decoration: none;
+}
+.volver:hover { color: var(--brown); }
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-inner">
+    <a href="https://davidmateos.com/inicio.html" class="nav-logo">David Mateos</a>
+    <ul class="nav-links">
+      <li><a href="https://davidmateos.com/inicio.html">Inicio</a></li>
+      <li><a href="https://davidmateos.com/libros.html">Mis libros</a></li>
+      <li><a href="https://davidmateos.com/autor.html">Sobre el autor</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="https://davidmateos.com/suscribete.html">Suscríbete</a></li>
+      <li><a href="recursos-docentes.html">Para docentes</a></li>
+      <li><a href="https://davidmateos.com/contacto.html">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="gracias-wrap">
+  <div class="gracias-card">
+    <div class="gracias-icon">🎉</div>
+    <h1>¡Ya eres parte de la comunidad!</h1>
+    <p>Gracias por suscribirte. Tu recurso está listo para descargar. Recibirás materiales exclusivos para docentes directamente en tu email.</p>
+    <a id="btn-dl" href="#" class="btn-descarga">📥 Descargar mi recurso</a>
+    <p class="nota">Si la descarga no comienza, pulsa el botón de arriba.</p>
+    <a href="recursos-docentes.html" class="volver">← Volver a todos los recursos</a>
+  </div>
+</div>
+
+<script src="/nav.js"></script>
+<script>
+var url = localStorage.getItem('dm_download_url');
+if (url) {
+  var btn = document.getElementById('btn-dl');
+  btn.href = url;
+  btn.setAttribute('download', '');
+  localStorage.removeItem('dm_download_url');
+  setTimeout(function() {
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }, 800);
+} else {
+  document.getElementById('btn-dl').href = 'recursos-docentes.html';
+}
+</script>
+</body>
+</html>
