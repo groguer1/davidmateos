@@ -648,7 +648,7 @@ function dmDescargar() {
 
 document.addEventListener('click', function(e) {
   var link = e.target.closest('a[download]');
-  if (link) {
+  if (link && !link.classList.contains('dm-direct')) {
     e.preventDefault();
     abrirPopup(link.href);
   }
