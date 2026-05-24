@@ -632,17 +632,11 @@ function mostrarPaso2() {
   // descarga manual
 }
 
-function dmDescargar() {
+function dmDescargarDirect(e) {
+  e.stopPropagation();
   var url = _downloadUrl;
   cerrarPopup();
-  var a = document.createElement('a');
-  a.href = url;
-  a.setAttribute('download', '');
-  a.classList.add('dm-direct');
-  a.style.display = 'none';
-  document.body.appendChild(a);
-  a.click();
-  setTimeout(function() { document.body.removeChild(a); }, 200);
+  window.location.href = url;
 }
 
 document.addEventListener('click', function(e) {
