@@ -635,15 +635,14 @@ function mostrarPaso2() {
 function dmDescargar() {
   var url = _downloadUrl;
   cerrarPopup();
-  setTimeout(function() {
-    var a = document.createElement('a');
-    a.href = url;
-    a.setAttribute('download', '');
-    a.style.display = 'none';
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function() { document.body.removeChild(a); }, 100);
-  }, 50);
+  var a = document.createElement('a');
+  a.href = url;
+  a.setAttribute('download', '');
+  a.classList.add('dm-direct');
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function() { document.body.removeChild(a); }, 200);
 }
 
 document.addEventListener('click', function(e) {
