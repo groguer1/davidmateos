@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>David Mateos — Escritor</title>
+    <title>David Mateos &#x2014; Escritor</title>
     <link>https://davidmateos.com</link>
-    <description>Blog de David Mateos, autor de las sagas Valentina Roca y Calan Kennett. Artículos sobre literatura juvenil, lectura en familia y educación.</description>
+    <description>Blog de David Mateos, autor de las sagas Valentina Roca y Calan Kennett. Art&#xED;culos sobre literatura juvenil, lectura en familia y educaci&#xF3;n.</description>
     <language>es-ES</language>
     <atom:link href="https://davidmateos.com/feed.xml" rel="self" type="application/rss+xml"/>
 
     <item>
-      <title>Cómo usar un libro como excusa para hablar con tu hijo de temas difíciles</title>
+      <title>C&#xF3;mo usar un libro como excusa para hablar con tu hijo de temas dif&#xED;ciles</title>
       <link>https://davidmateos.com/blog/post-39.html</link>
-      <description>Cómo usar un libro como punto de partida para hablar con tu hijo de la muerte, el acoso, el miedo o la injusticia. Guía para padres.</description>
+      <description>C&#xF3;mo usar un libro como punto de partida para hablar con tu hijo de la muerte, el acoso, el miedo o la injusticia. Gu&#xED;a para padres.</description>
       <pubDate>Mon, 10 Mar 2026 00:00:00 +0100</pubDate>
       <guid>https://davidmateos.com/blog/post-39.html</guid>
     </item>
 
     <item>
-      <title>Por qué los niños necesitan antagonistas creíbles en los libros que leen</title>
+      <title>Por qu&#xE9; los ni&#xF1;os necesitan antagonistas cre&#xED;bles en los libros que leen</title>
       <link>https://davidmateos.com/blog/post-38.html</link>
-      <description>Qué hace memorable a un antagonista en la literatura infantil y juvenil y por qué los niños necesitan villanos bien escritos.</description>
+      <description>Qu&#xE9; hace memorable a un antagonista en la literatura infantil y juvenil y por qu&#xE9; los ni&#xF1;os necesitan villanos bien escritos.</description>
       <pubDate>Mon, 14 Jul 2025 00:00:00 +0100</pubDate>
       <guid>https://davidmateos.com/blog/post-38.html</guid>
     </item>
 
     <item>
-      <title>Géneros literarios juveniles: guía para que los niños encuentren el suyo</title>
+      <title>G&#xE9;neros literarios juveniles: gu&#xED;a para que los ni&#xF1;os encuentren el suyo</title>
       <link>https://davidmateos.com/blog/post-37.html</link>
-      <description>Una guía práctica para ayudar a los niños y jóvenes a descubrir qué géneros literarios les apasionan.</description>
-      <pubDate>Mon, 01 Dec 2025 00:00:00 +0100</pubDate>
+      <description>Una gu&#xED;a pr&#xE1;ctica para ayudar a los ni&#xF1;os y j&#xF3;venes a descubrir qu&#xE9; g&#xE9;neros literarios les apasionan.</description>
+      <pubDate>Sun, 30 Nov 2025 00:00:00 +0100</pubDate>
       <guid>https://davidmateos.com/blog/post-37.html</guid>
     </item>
 
     <item>
-      <title>Artículo del blog 36</title>
+      <title>Art&#xED;culo del blog 36</title>
       <link>https://davidmateos.com/blog/post-36.html</link>
-      <description>Artículo del blog de David Mateos sobre literatura juvenil y lectura.</description>
-      <pubDate>Mon, 01 Nov 2025 00:00:00 +0100</pubDate>
+      <description>Art&#xED;culo del blog de David Mateos sobre literatura juvenil y lectura.</description>
+      <pubDate>Sat, 01 Nov 2025 00:00:00 +0100</pubDate>
       <guid>https://davidmateos.com/blog/post-36.html</guid>
     </item>
 
     <item>
-      <title>Artículo del blog 35</title>
+      <title>Art&#xED;culo del blog 35</title>
       <link>https://davidmateos.com/blog/post-35.html</link>
-      <description>Artículo del blog de David Mateos sobre literatura juvenil y lectura.</description>
-      <pubDate>Mon, 01 Oct 2025 00:00:00 +0100</pubDate>
+      <description>Art&#xED;culo del blog de David Mateos sobre literatura juvenil y lectura.</description>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0100</pubDate>
       <guid>https://davidmateos.com/blog/post-35.html</guid>
     </item>
 
