@@ -10,6 +10,7 @@
     { href: '/suscribete.html',        label: 'Suscríbete' },
     { href: '/recursos-docentes.html', label: 'Para docentes' },
     { href: '/contacto.html',          label: 'Contacto' },
+    <li><a href="https://www.goodreads.com/author/show/7356842.David_Mateos" target="_blank">Goodreads</a></li>
   ];
 
   const items = links.map(({ href, label }) => {
