@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /gracias-descarga.html
 
 Sitemap: https://davidmateos.com/sitemap.xml
