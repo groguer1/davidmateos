@@ -358,4 +358,17 @@
     <priority>0.6</priority>
     <lastmod>2026-06-01</lastmod>
   </url>
+
+<url>
+  <loc>https://davidmateos.com/blog/post-40.html</loc>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+  <lastmod>2026-06-02</lastmod>
+</url>
+<url>
+  <loc>https://davidmateos.com/blog/post-41.html</loc>
+  <changefreq>yearly</changefreq>
+  <priority>0.6</priority>
+  <lastmod>2026-06-02</lastmod>
+</url>
 </urlset>
