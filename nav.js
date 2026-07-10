@@ -10,13 +10,14 @@
     { href: '/suscribete.html',        label: 'Suscríbete' },
     { href: '/recursos-docentes.html', label: 'Para docentes' },
     { href: '/contacto.html',          label: 'Contacto' },
-    <li><a href="https://www.goodreads.com/author/show/7356842.David_Mateos" target="_blank">Goodreads</a></li>
+    { href: 'https://www.goodreads.com/author/show/7356842.David_Mateos', label: 'Goodreads', target: '_blank' },
   ];
 
-  const items = links.map(({ href, label }) => {
+  const items = links.map(({ href, label, target }) => {
     const fileName = href.replace('/', '');
     const isActive = currentPath === fileName ? ' class="active"' : '';
-    return `<li><a href="${href}"${isActive}>${label}</a></li>`;
+    const targetAttr = target ? ` target="${target}"` : '';
+    return `<li><a href="${href}"${isActive}${targetAttr}>${label}</a></li>`;
   }).join('');
 
   const nav = document.querySelector('nav');
