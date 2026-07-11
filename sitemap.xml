@@ -26,13 +26,13 @@
     <loc>https://davidmateos.com/blog.html</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-11</lastmod>
   </url>
   <url>
     <loc>https://davidmateos.com/recursos-docentes.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-    <lastmod>2026-06-01</lastmod>
+    <lastmod>2026-07-11</lastmod>
   </url>
   <url>
     <loc>https://davidmateos.com/suscribete.html</loc>
@@ -136,6 +136,18 @@
   </url>
 
   <!-- Blog posts -->
+  <url>
+    <loc>https://davidmateos.com/blog/lecturas-primero-eso.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-11</lastmod>
+  </url>
+  <url>
+    <loc>https://davidmateos.com/blog/mi-hijo-adolescente-no-quiere-leer.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-11</lastmod>
+  </url>
   <url>
     <loc>https://davidmateos.com/blog/post-01.html</loc>
     <changefreq>yearly</changefreq>
