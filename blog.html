@@ -67,6 +67,14 @@
 .card-img { width: 100%; height: 180px; overflow: hidden; }
 .card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
 .blog-card:hover .card-img img { transform: scale(1.04); }
+.start-here { max-width: var(--wide); margin: 2.5rem auto 0; padding: 0 2rem; }
+.start-here-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; }
+.start-col { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; }
+.start-col h3 { font-family: var(--font-display); font-size: 1.02rem; color: var(--brown); margin-bottom: 0.9rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--amber); }
+.start-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+.start-col li a { color: var(--brown-light); text-decoration: none; font-size: 0.86rem; line-height: 1.5; display: flex; gap: 0.4rem; }
+.start-col li a::before { content: '→'; color: var(--amber); flex-shrink: 0; }
+.start-col li a:hover { color: var(--amber); }
 .newsletter { max-width: var(--wide); margin: 0 auto; padding: 2rem; }
 .newsletter-inner { background: var(--cream-dark); border: 1px solid var(--border); border-radius: 12px; padding: 2.5rem; text-align: center; }
 .newsletter-inner h2 { font-family: var(--font-display); font-size: 1.5rem; margin-bottom: 0.75rem; }
@@ -130,6 +138,37 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
            alt="Estudiantes con libros y mochilas de camino al instituto">
     </div>
   </a>
+</div>
+
+<!-- EMPIEZA POR AQUÍ -->
+<div class="section-title"><h2>Empieza por aquí</h2></div>
+<div class="start-here">
+  <div class="start-here-grid">
+    <div class="start-col">
+      <h3>👨‍👩‍👧 Si eres padre o madre</h3>
+      <ul>
+        <li><a href="blog/post-01.html">Cómo fomentar el hábito lector en niños de 8 a 12 años</a></li>
+        <li><a href="blog/mi-hijo-adolescente-no-quiere-leer.html">Mi hijo adolescente no quiere leer: 9 estrategias</a></li>
+        <li><a href="blog/post-24.html">Qué leer después de Harry Potter: 10 sagas</a></li>
+      </ul>
+    </div>
+    <div class="start-col">
+      <h3>🎓 Si eres docente</h3>
+      <ul>
+        <li><a href="blog/libros-para-leer-en-clase-secundaria.html">Libros para leer en clase de secundaria</a></li>
+        <li><a href="blog/post-33.html">Preguntas de comprensión lectora por edades</a></li>
+        <li><a href="recursos-docentes.html">Recursos descargables gratis: guías, rúbricas y talleres</a></li>
+      </ul>
+    </div>
+    <div class="start-col">
+      <h3>✍️ Si escribes</h3>
+      <ul>
+        <li><a href="blog/post-36.html">Cómo escribir el primer capítulo de una novela juvenil</a></li>
+        <li><a href="blog/programas-para-escribir-novela.html">Programas para escribir una novela</a></li>
+        <li><a href="blog/post-13.html">Worldbuilding para principiantes</a></li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <!-- ALL POSTS -->
