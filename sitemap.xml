@@ -167,6 +167,12 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://davidmateos.com/blog/libros-como-amanda-black.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-13</lastmod>
+  </url>
+  <url>
     <loc>https://davidmateos.com/blog/libros-misterio-ninos-12-anos.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
