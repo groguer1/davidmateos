@@ -167,6 +167,12 @@
 
   <!-- Blog posts -->
   <url>
+    <loc>https://davidmateos.com/blog/que-leer-si-le-gusto-los-futbolisimos.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-07-14</lastmod>
+  </url>
+  <url>
     <loc>https://davidmateos.com/blog/libros-detective-protagonista-femenina.html</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
