@@ -1,0 +1,57 @@
+name: Titulos unicos fichas Valentina
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  titulos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Aplicar title y description unicos
+        run: |
+          python3 - <<'EOF'
+          import re, pathlib
+
+          fichas = {
+            "libro-valentina-arana.html": (
+              "Valentina Roca y el desaf\u00edo de la Ara\u00f1a | David Mateos",
+              "La Ara\u00f1a teje una red de enga\u00f1os que ning\u00fan investigador ha logrado descifrar, y cada pista lleva a una trampa. Misterio juvenil de 10 a 14 a\u00f1os."),
+            "libro-valentina-collar.html": (
+              "Valentina Roca y el misterio del collar de la Marquesa",
+              "Roban el collar de la Marquesa y la polic\u00eda no avanza. Valentina ve el detalle que a todos se les escap\u00f3. Novela de misterio juvenil de 10 a 14 a\u00f1os."),
+            "libro-valentina-fantasma.html": (
+              "Valentina Roca y el fantasma del Prado | David Mateos",
+              "Un cuadro desaparece del Museo del Prado sin testigos ni pistas. Solo Valentina Roca sabe por d\u00f3nde empezar. Misterio juvenil de 10 a 14 a\u00f1os."),
+            "libro-valentina-gambito.html": (
+              "Valentina Roca y el Gambito Hacker | David Mateos",
+              "Un ciberataque paraliza el Hospital Central de Madrid. Ajedrez, intriga y espionaje digital en un thriller juvenil de 10 a 14 a\u00f1os."),
+          }
+
+          hechos = []
+          for nombre, (titulo, desc) in fichas.items():
+              ruta = pathlib.Path(nombre)
+              if not ruta.exists():
+                  print("No existe:", nombre); continue
+              t = ruta.read_text(encoding="utf-8")
+              t2 = re.sub(r"<title>.*?</title>", lambda m: "<title>" + titulo + "</title>", t, count=1, flags=re.S)
+              t2 = re.sub(r'(<meta name="description" content=")[^"]*(")', lambda m: m.group(1) + desc + m.group(2), t2, count=1)
+              if t2 != t:
+                  ruta.write_text(t2, encoding="utf-8")
+                  hechos.append(nombre)
+
+          print("Fichas actualizadas:", len(hechos))
+          for h in hechos: print(" -", h)
+          EOF
+
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "SEO: title y description unicos en las fichas de Valentina Roca"
+          git push
