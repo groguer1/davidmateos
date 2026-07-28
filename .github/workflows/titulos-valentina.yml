@@ -20,16 +20,16 @@ jobs:
           fichas = {
             "libro-valentina-arana.html": (
               "Valentina Roca y el desaf\u00edo de la Ara\u00f1a | David Mateos",
-              "La Ara\u00f1a teje una red de enga\u00f1os que ning\u00fan investigador ha logrado descifrar, y cada pista lleva a una trampa. Misterio juvenil de 10 a 14 a\u00f1os."),
+              "La Ara\u00f1a teje una red de enga\u00f1os que ning\u00fan investigador ha logrado descifrar, y cada pista lleva a una trampa. Misterio juvenil de 9 a 14 a\u00f1os."),
             "libro-valentina-collar.html": (
               "Valentina Roca y el misterio del collar de la Marquesa",
-              "Roban el collar de la Marquesa y la polic\u00eda no avanza. Valentina ve el detalle que a todos se les escap\u00f3. Novela de misterio juvenil de 10 a 14 a\u00f1os."),
+              "Roban el collar de la Marquesa y la polic\u00eda no avanza. Valentina ve el detalle que a todos se les escap\u00f3. Novela de misterio juvenil de 9 a 14 a\u00f1os."),
             "libro-valentina-fantasma.html": (
               "Valentina Roca y el fantasma del Prado | David Mateos",
-              "Un cuadro desaparece del Museo del Prado sin testigos ni pistas. Solo Valentina Roca sabe por d\u00f3nde empezar. Misterio juvenil de 10 a 14 a\u00f1os."),
+              "Un cuadro desaparece del Museo del Prado sin testigos ni pistas. Solo Valentina Roca sabe por d\u00f3nde empezar. Misterio juvenil de 9 a 14 a\u00f1os."),
             "libro-valentina-gambito.html": (
               "Valentina Roca y el Gambito Hacker | David Mateos",
-              "Un ciberataque paraliza el Hospital Central de Madrid. Ajedrez, intriga y espionaje digital en un thriller juvenil de 10 a 14 a\u00f1os."),
+              "Un ciberataque paraliza el Hospital Central de Madrid. Ajedrez, intriga y espionaje digital en un thriller juvenil de 9 a 14 a\u00f1os."),
           }
 
           hechos = []
