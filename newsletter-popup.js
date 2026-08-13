@@ -37,6 +37,12 @@
 
   function show() {
     if (document.getElementById('dm-np-overlay')) return;
+    // Si el banner de cookies está abierto, esperar: dos modales a la vez es
+    // insufrible, y además el usuario tiene que poder leer lo que acepta.
+    if (document.documentElement.hasAttribute('data-cookies-abierto')) {
+      setTimeout(show, 2000);
+      return;
+    }
 
     var style = document.createElement('style');
     style.textContent = css;

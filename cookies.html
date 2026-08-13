@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+<!-- Consentimiento de cookies: TIENE QUE IR ANTES que AdSense y GTM.
+     Declara Consent Mode v2 con todo denegado, para que ninguna cookie de analitica
+     ni de publicidad se ponga hasta que el usuario diga que si. El banner vive en
+     /cookie-consent.js -->
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  ad_storage:'denied', analytics_storage:'denied',
+  ad_user_data:'denied', ad_personalization:'denied',
+  functionality_storage:'granted', security_storage:'granted',
+  wait_for_update: 500
+});
+</script>
+<script src="/cookie-consent.js" defer></script>
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
