@@ -62,7 +62,7 @@
           '<div class="dm-np-error">Escribe un correo v&aacute;lido para suscribirte.</div>' +
           '<button type="submit">Suscribirme gratis</button>' +
         '</form>' +
-        '<p class="dm-np-note">Sin spam. Date de baja cuando quieras. <a href="/privacidad.html">Privacidad</a></p>' +
+        '<p class="dm-np-note">Una vez al mes. Sin spam. Date de baja cuando quieras. <a href="/privacidad.html">Privacidad</a></p>' +
       '</div>';
     document.body.appendChild(overlay);
     requestAnimationFrame(function () { overlay.classList.add('dm-np-visible'); });
