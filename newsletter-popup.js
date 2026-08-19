@@ -1,9 +1,22 @@
 // newsletter-popup.js — popup de suscripción Brevo para davidmateos.com
 // Se muestra una vez a los 18 s o al 55 % de scroll; si se cierra, no vuelve
 // a aparecer en 30 días; si el usuario se suscribe, no vuelve a aparecer nunca.
+//
+// ⚠️ ARREGLADO EL 19/08/2026, y llevaba roto desde el 11/07: a FORM_URL le
+// faltaban los «==» finales del token. Brevo respondía «400 Invalid token», así
+// que NINGÚN alta desde el popup llegó nunca a la lista. El iframe de
+// suscribete.html sí llevaba la URL completa, y por eso ese camino sí funcionaba.
+// Se descubrió porque David probó los dos y comparó.
+//
+// Y lo que dejó el fallo invisible durante un mes fue el propio código: enviaba
+// con mode:'no-cors' —que hace la respuesta ilegible— y luego daba la bienvenida
+// tanto si Brevo aceptaba como si la rechazaba. Ahora se lee la respuesta de
+// verdad (Brevo permite CORS desde este dominio) y solo se dice «bienvenido»
+// cuando contesta success:true. REGLA: si un formulario no puede fallar nunca a
+// la vista, es que no se está mirando si falla.
 (function () {
   var KEY = 'dmNewsletterPopup';
-  var FORM_URL = 'https://9a7395d6.sibforms.com/serve/MUIFAFlJpxGCsOukbvlXYZJP2X0cIkfeYb3cumsE0j6A9EcFCoUbhQIkxybebYzKlq5_IeS2gYkCF5J-e0uJdI2Xd-R_19MJR1TmPlaxYSh-UDywR7U3WPxF0sxaMA2GGBvb2lqX5POeIAXteM-Bz4dM2LMg4y6OgT2w7pO_5jUmZnqKp3E7yN8t9pkGsHHI8Y6y_HaZbJinmx3ycA';
+  var FORM_URL = 'https://9a7395d6.sibforms.com/serve/MUIFAFlJpxGCsOukbvlXYZJP2X0cIkfeYb3cumsE0j6A9EcFCoUbhQIkxybebYzKlq5_IeS2gYkCF5J-e0uJdI2Xd-R_19MJR1TmPlaxYSh-UDywR7U3WPxF0sxaMA2GGBvb2lqX5POeIAXteM-Bz4dM2LMg4y6OgT2w7pO_5jUmZnqKp3E7yN8t9pkGsHHI8Y6y_HaZbJinmx3ycA==';
 
   var page = window.location.pathname.split('/').pop();
   if (page === 'suscribete.html' || page === 'gracias-descarga.html') return;
@@ -96,7 +109,6 @@
 
       var data = new FormData();
       data.append('EMAIL', email);
-      data.append('OPT_IN', '1');
       data.append('email_address_check', '');
       data.append('locale', 'es');
 
@@ -112,7 +124,20 @@
           setTimeout(function () { overlay.remove(); }, 350);
         }, 3500);
       }
-      fetch(FORM_URL, { method: 'POST', body: data, mode: 'no-cors' }).then(done).catch(done);
+      function fallo() {
+        error.innerHTML = 'No se ha podido completar la suscripci&oacute;n. Int&eacute;ntalo de nuevo o escribe a <a href="mailto:dmateos.pascual@gmail.com" style="color:#8a7a5c">dmateos.pascual@gmail.com</a>.';
+        error.style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Suscribirme gratis';
+      }
+      fetch(FORM_URL, { method: 'POST', body: data })
+        .then(function (r) {
+          return r.json().catch(function () { return {}; }).then(function (j) {
+            if (!r.ok || j.success !== true) throw new Error(j.message || ('HTTP ' + r.status));
+            done();
+          });
+        })
+        .catch(fallo);
     });
   }
 
