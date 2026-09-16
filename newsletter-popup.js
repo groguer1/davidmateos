@@ -130,7 +130,10 @@
         btn.disabled = false;
         btn.textContent = 'Suscribirme gratis';
       }
-      fetch(FORM_URL, { method: 'POST', body: data })
+      /* ?isAjax=1 [16/09/2026]: sin él, Brevo le devuelve a un navegador su página HTML de
+         confirmación en vez de JSON cuando el alta va BIEN, y el popup daba error con el alta
+         hecha. Visto en letras, que usa el mismo código. */
+      fetch(FORM_URL + (FORM_URL.indexOf('?') < 0 ? '?' : '&') + 'isAjax=1', { method: 'POST', body: data })
         .then(function (r) {
           return r.json().catch(function () { return {}; }).then(function (j) {
             if (!r.ok || j.success !== true) throw new Error(j.message || ('HTTP ' + r.status));
