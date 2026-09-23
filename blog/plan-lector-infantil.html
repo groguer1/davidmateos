@@ -118,8 +118,86 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/estilos.css">
+<style>
+  :root {
+    --brown: #3d2b1f;
+    --brown-light: #6b4c35;
+    --amber: #d4821a;
+    --amber-light: #f0a842;
+    --cream: #fdf8f0;
+    --cream-dark: #f5ede0;
+    --border: #e8d9c8;
+    --text: #2c1d12;
+    --text-light: #5a4232;
+    --font-display: 'Playfair Display', Georgia, serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --wide: 1100px;
+    --content: 720px;
+    --radius: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: var(--font-body); background: var(--cream); color: var(--text); line-height: 1.7; }
+  a { color: var(--brown); text-decoration: none; }
+  a:hover { color: var(--amber); }
+  nav { background: var(--brown); padding: 0 2rem; }
+  .nav-inner { max-width: var(--wide); margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 56px; }
+  .nav-logo { color: #fff; font-family: var(--font-display); font-size: 1.1rem; font-weight: 700; letter-spacing: 0.02em; }
+  .nav-links { list-style: none; display: flex; gap: 1.5rem; }
+  .nav-links a { color: rgba(255,255,255,0.85); font-size: 0.875rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--amber-light); }
+  .article-hero { background: var(--brown); color: #fff; padding: 3rem 2rem 2.5rem; text-align: center; }
+  .article-hero .eyebrow { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber-light); margin-bottom: 1rem; }
+  .article-hero h1 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.5vw, 2.4rem); font-weight: 700; line-height: 1.2; max-width: 760px; margin: 0 auto 1rem; }
+  .article-hero p { font-size: 1.05rem; color: rgba(255,255,255,0.8); max-width: 600px; margin: 0 auto; }
+  .article-wrap { max-width: var(--content); margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  .article-meta { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--border); }
+  .tag { background: var(--amber); color: #fff; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.25rem 0.65rem; border-radius: 20px; }
+  .date, .read-time { font-size: 0.875rem; color: var(--text-light); }
+  .article-intro { font-size: 1.1rem; line-height: 1.75; color: var(--text-light); margin-bottom: 2rem; font-style: italic; border-left: 3px solid var(--amber); padding-left: 1rem; }
+  .article-body h2 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--brown); margin: 2.5rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 1px solid var(--border); }
+  .article-body h3 { font-size: 1.05rem; font-weight: 600; color: var(--brown); margin: 1.5rem 0 0.5rem; }
+  .article-body p { margin-bottom: 1rem; }
+  .article-body ul, .article-body ol { margin: 0.75rem 0 1rem 1.5rem; }
+  .article-body li { margin-bottom: 0.5rem; }
+  .article-body strong { font-weight: 600; }
+  /* Tablas: mismo CSS que ya usa programas-para-escribir-novela.html, para no inventar
+     un estilo nuevo. La plantilla de los post-NN no lo traía. */
+  .article-body table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; font-size: 0.88rem; }
+  .article-body th { background: var(--brown); color: #fff; padding: 0.6rem 0.8rem; text-align: left; }
+  .article-body td { padding: 0.6rem 0.8rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .article-body tr:nth-child(even) td { background: var(--cream-dark); }
+  .table-wrap { overflow-x: auto; }
+  .article-body blockquote { border-left: 3px solid var(--amber); padding: 0.75rem 1.25rem; margin: 1.5rem 0; background: var(--cream-dark); font-style: italic; border-radius: 0 var(--radius) var(--radius) 0; color: var(--text-light); }
+  .highlight-box { background: var(--cream-dark); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .highlight-box h4 { font-size: 0.9rem; font-weight: 700; color: var(--brown); margin-bottom: 0.75rem; }
+  .highlight-box ul { margin-left: 1.25rem; }
+  .highlight-box li { font-size: 0.9rem; margin-bottom: 0.35rem; }
+  .article-cta { background: var(--brown); color: #fff; border-radius: var(--radius); padding: 2rem; margin-top: 3rem; text-align: center; }
+  .article-cta h3 { font-family: var(--font-display); font-size: 1.25rem; margin-bottom: 0.75rem; }
+  .article-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.8); margin-bottom: 1.25rem; }
+  .btn { display: inline-block; padding: 0.65rem 1.5rem; border-radius: 4px; font-size: 0.875rem; font-weight: 600; transition: all .2s; margin: 0.25rem; }
+  .btn-amber { background: var(--amber); color: #fff; }
+  .btn-amber:hover { background: var(--amber-light); color: #fff; }
+  .btn-outline { border: 1px solid rgba(255,255,255,0.5); color: rgba(255,255,255,0.9); }
+  .btn-outline:hover { border-color: #fff; color: #fff; }
+  .related { background: var(--cream-dark); padding: 3rem 2rem; }
+  .related-inner { max-width: var(--wide); margin: 0 auto; }
+  .related h3 { font-family: var(--font-display); font-size: 1.2rem; color: var(--brown); margin-bottom: 1rem; }
+  .related-links { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 0.75rem; }
+  .related-links a { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--text); line-height: 1.4; transition: border-color .2s; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+  .related-links a:hover { border-color: var(--amber); color: var(--brown); }
+  footer { background: var(--brown); color: rgba(255,255,255,0.7); text-align: center; padding: 1.5rem; font-size: 0.8rem; }
+  footer a { color: var(--amber-light); }
+  @media (max-width: 600px) {
+    nav { padding: 0 1rem; }
+    .article-hero { padding: 2rem 1rem 1.5rem; }
+    .article-wrap { padding: 1.5rem 1rem 3rem; }
+  }
+  .key-takeaways { background: var(--cream-dark); border: 1px solid var(--border); border-left: 3px solid var(--amber); border-radius: var(--radius); padding: 1.25rem 1.5rem; margin: 2rem 0; }
+  .key-takeaways h3 { margin-top: 0; }
+  .key-takeaways li { font-size: 0.95rem; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
