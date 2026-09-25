@@ -560,4 +560,10 @@
 <priority>0.6</priority>
 <lastmod>2026-09-13</lastmod>
 </url>
+  <url>
+    <loc>https://davidmateos.com/blog/libros-como-percy-jackson.html</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <lastmod>2026-09-25</lastmod>
+  </url>
 </urlset>
