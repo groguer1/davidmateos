@@ -75,6 +75,60 @@ def procesa(ruta, aplicar):
         open(ruta, "w", encoding="utf-8").write(s2)
     return cambios
 
+# --- Formatos antiguos de lista (posts de 2026 anteriores a la ficha book-item) -------------
+# A) <h3>N. Título — Autor (edad)</h3> seguido de su <p>…</p>
+# B) <p><strong>Título</strong> (Autor). Texto…</p>, con uno o dos libros por párrafo
+LISTAS = ["post-15.html", "post-20.html", "post-24.html", "post-27.html"]
+# Libros que el propio artículo desaconseja para su público: sin enlace de compra.
+SIN_ENLACE = {"El guardián de espadas"}
+CSS_LISTA = ('.book-buy { margin: -0.4rem 0 1.2rem; font-size: 0.9rem; }\n'
+             '.book-buy a { color: #a5600f; font-weight: 600; text-decoration: underline; }\n'
+             '.aviso-afiliado { font-size: 0.8rem; color: #8a7a6a; margin: 0 0 1rem; }\n')
+
+def _a(titulo, autor):
+    q = f"{titulo} {autor}".strip()
+    url = "https://www.amazon.es/s?" + urllib.parse.urlencode({"k": q, "i": "stripbooks", "tag": TAG})
+    return q, (f'<a href="{html.escape(url)}" target="_blank" rel="sponsored nofollow noopener">'
+               f'Ver «{html.escape(titulo)}» en Amazon →</a>')
+
+def procesa_lista(ruta, aplicar):
+    s = open(ruta, encoding="utf-8").read()
+    if "book-buy" in s:
+        return 0
+    n = 0
+    def h3(m):
+        nonlocal n
+        cab = limpia(m.group(1))
+        if "—" not in cab:
+            return m.group(0)
+        titulo, autor = [x.strip() for x in cab.split("—", 1)]
+        titulo = re.sub(r"^\d+\.\s*", "", titulo)
+        autor = re.sub(r"\s*\(.*?\)", "", autor).strip()
+        if titulo in SIN_ENLACE:
+            return m.group(0)
+        q, a = _a(titulo, autor); print("   ", q); n += 1
+        return m.group(0) + f'\n  <p class="book-buy">{a}</p>'
+    s = re.sub(r"<h3>(.*?)</h3>\s*<p>.*?</p>", h3, s, flags=re.S)
+    def par(m):
+        nonlocal n
+        pares = re.findall(r"<strong>([^<]+)</strong>\s*\(([^)]+)\)", m.group(0))
+        if not pares:
+            return m.group(0)
+        enl = []
+        for t, au in pares:
+            q, a = _a(t.strip(), au.strip()); print("   ", q); n += 1; enl.append(a)
+        return m.group(0) + '\n  <p class="book-buy">' + " · ".join(enl) + "</p>"
+    s = re.sub(r"<p><strong>[^<]+</strong>\s*\([^)]+\).*?</p>", par, s, flags=re.S)
+    if n:
+        primero = s.find('<p class="book-buy">')
+        ini = s.rfind("<h3>", 0, primero)
+        ini = ini if ini != -1 else s.rfind("<p>", 0, primero)
+        s = s[:ini] + AVISO + "\n\n  " + s[ini:]
+        s = s.replace("</style>", CSS_LISTA + "</style>", 1)
+    if aplicar and n:
+        open(ruta, "w", encoding="utf-8").write(s)
+    return n
+
 if __name__ == "__main__":
     aplicar = "--aplicar" in sys.argv
     total = 0
@@ -82,5 +136,10 @@ if __name__ == "__main__":
         n = procesa(f, False) if not aplicar else procesa(f, True)
         if n:
             print(f"{n:3d}  {f}")
+            total += n
+    for f in LISTAS:
+        n = procesa_lista("blog/" + f, aplicar)
+        if n:
+            print(f"{n:3d}  blog/{f} (lista antigua)")
             total += n
     print("TOTAL", total, "(aplicado)" if aplicar else "(simulación)")
