@@ -78,7 +78,8 @@ def procesa(ruta, aplicar):
 # --- Formatos antiguos de lista (posts de 2026 anteriores a la ficha book-item) -------------
 # A) <h3>N. Título — Autor (edad)</h3> seguido de su <p>…</p>
 # B) <p><strong>Título</strong> (Autor). Texto…</p>, con uno o dos libros por párrafo
-LISTAS = ["post-15.html", "post-20.html", "post-24.html", "post-27.html"]
+LISTAS = ["post-15.html", "post-20.html", "post-24.html", "post-27.html",
+          "post-21.html", "post-26.html", "post-02.html", "libros-para-leer-en-clase-secundaria.html"]
 # Libros que el propio artículo desaconseja para su público: sin enlace de compra.
 SIN_ENLACE = {"El guardián de espadas"}
 CSS_LISTA = ('.book-buy { margin: -0.4rem 0 1.2rem; font-size: 0.9rem; }\n'
@@ -111,14 +112,27 @@ def procesa_lista(ruta, aplicar):
     s = re.sub(r"<h3>(.*?)</h3>\s*<p>.*?</p>", h3, s, flags=re.S)
     def par(m):
         nonlocal n
-        pares = re.findall(r"<strong>([^<]+)</strong>\s*\(([^)]+)\)", m.group(0))
-        if not pares:
-            return m.group(0)
+        cuerpo = m.group(2)
+        pares = re.findall(r"<strong>(.*?)</strong>\s*\(([^)<]+)\)", cuerpo)
         enl = []
         for t, au in pares:
-            q, a = _a(t.strip(), au.strip()); print("   ", q); n += 1; enl.append(a)
+            t = limpia(t)
+            if not t or t in SIN_ENLACE or len(t) > 80 or not au.strip()[:1].isupper():  # «(misterio)» no es un autor
+                continue
+            q, a = _a(t, au.strip()); print("   ", q); n += 1; enl.append(a)
+        if not enl:
+            return m.group(0)
         return m.group(0) + '\n  <p class="book-buy">' + " · ".join(enl) + "</p>"
-    s = re.sub(r"<p><strong>[^<]+</strong>\s*\([^)]+\).*?</p>", par, s, flags=re.S)
+    s = re.sub(r"<(p)>(.*?)</p>", par, s, flags=re.S)
+    # Formato ficha de secundaria: <h3>Título</h3> … 👤 Autor
+    def ficha(m):
+        nonlocal n
+        t = limpia(m.group(1)); au = limpia(m.group(2)).strip()
+        if t.lower().startswith("saga "):
+            t = t[5:]
+        q, a = _a(t, au); print("   ", q); n += 1
+        return m.group(0) + f'\n<p class="book-buy">{a}</p>'
+    s = re.sub(r'<h3>([^<]+)</h3>\s*<div class="tool-meta">\s*<span>👤\s*([^<]+)</span>.*?</div>', ficha, s, flags=re.S)
     if n:
         primero = s.find('<p class="book-buy">')
         ini = s.rfind("<h3>", 0, primero)
