@@ -125,7 +125,7 @@
         }, 3500);
       }
       function fallo() {
-        error.innerHTML = 'No se ha podido completar la suscripci&oacute;n. Int&eacute;ntalo de nuevo o escribe a <a href="mailto:dmateos.pascual@gmail.com" style="color:#8a7a5c">dmateos.pascual@gmail.com</a>.';
+        error.innerHTML = 'No se ha podido completar la suscripci&oacute;n. Int&eacute;ntalo de nuevo o escribe a <a href="mailto:info@davidmateos.com" style="color:#8a7a5c">info@davidmateos.com</a>.';
         error.style.display = 'block';
         btn.disabled = false;
         btn.textContent = 'Suscribirme gratis';
